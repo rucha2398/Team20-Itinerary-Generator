@@ -9,9 +9,11 @@ Planning a trip involves a great deal of planning and thought. Many people canno
 **Target Users:**
 
 *Adult*
+
 One target user of our application is an Adult who would like to plan a vacation. This can range from a college student planning a trip with friends to a working professional who might be trying to plan a trip for their family. College students are typically 18-22 in age, and might come into this application with a lower budget in mind than a working professional. College students might use our application for planning a trip itinerary with their friends. This might be a spring break trip or a long weekend trip to a new destination. They might want to create an itinerary for a 3-day trip and 1) get recommendations for various cheap drinking/dining options and 2) view the most highly rated attractions at their destination. On the other hand, working professionals may range in socioeconomic status and in ages, ranging from 30 - 60. Their trip-planning needs and interests might vary quite a bit from a college student, but essentially they would be using our application to plan a trip itinerary for their family. Working professionals typically have a set number of vacation days in a year, and tend to take them off in chunks if planning a family vacation. They might want to create an itinerary for a 7-day vacation and 1) get recommendations for family-style restaurants and dining options and 2) view the most highly rated family-friendly attractions at their destination. 
 
 *Agent*
+
 Another target user of our application is an Agent (who will have a different view from an Adult described above). An agent might be someone affiliated with a travel agency or external company that assists in travel bookings or scheduling itineraries. An agent is likely a working professional, and needs to be able to accomplish a number of tasks with our application. Agents need to be able to create a profile and obtain the results of one’s entries in the User form where they specify what they are looking for out of the trip they are using this website to help plan. 
 
 
