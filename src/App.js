@@ -1,15 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ItineraryResult from './components/ItineraryResults';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Hi changed some stufffff
-        </p>
-      </header>
+      <ItineraryResult/>
     </div>
   );
 }
