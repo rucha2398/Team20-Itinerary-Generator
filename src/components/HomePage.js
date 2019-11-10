@@ -1,9 +1,8 @@
 import React from 'react';
 import '../styles/HomePage.css';
-import { Container} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { stat } from 'fs';
+import YelpApiPrototype from '../containers/YelpApiPrototype';
 
 export default class HomePage extends React.Component {
     constructor(props) {
@@ -14,7 +13,6 @@ export default class HomePage extends React.Component {
     }
 
     locationChanged = event => {
-        console.log("Button Clicked");
         this.setState({
             searchLocation: event.target.value
         })
@@ -71,7 +69,6 @@ export default class HomePage extends React.Component {
 
                     <button 
                         onClick={() => this.props.searchYelpApi(this.state.searchLocation)}
-                        // onClick={console.log('I have clicked this dumb button!!!!')}
                         type="submit" className="btn btn-primary">Let's Go!
                     </button>
                 </form>
