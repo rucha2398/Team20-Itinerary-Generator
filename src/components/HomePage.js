@@ -3,57 +3,81 @@ import '../styles/HomePage.css';
 import { Container} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { stat } from 'fs';
 
 export default class HomePage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchLocation: ''
+        }
+    }
+
+    locationChanged = event => {
+        console.log("Button Clicked");
+        this.setState({
+            searchLocation: event.target.value
+        })
+    }
+
     render() {
         return(
-            <div class="container">
+            <div className="container">
                 <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-2">
+                    <div className="form-row">
+                        <div className="form-group col-md-2">
                         <i> <FontAwesomeIcon icon={faSearch}/> </i>
                         </div>
-                        <div class="form-group col-md-10">
-                            <input type="search" class="form-control" id="searchBar" placeholder="search"></input>
+                        <div className="form-group col-md-10">
+                            <input type="search" className="form-control" id="searchBar" placeholder="search"></input>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="location">Location</label>
-                        <input type="text" class="form-control" id="location" placeholder="Amsterdam"></input>
+                    <div className="form-group">
+                        <label htmlFor="location">Location</label>
+                        <input onChange = {this.locationChanged}
+                            value = {this.state.searchLocation}
+                            type="text" className="form-control" id="location" placeholder="Amsterdam">
+                        </input>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="startDate">Start</label>
-                            <input type="date" class="form-control" id="startDate" placeholder="Start Date"></input>
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
+                            <label htmlFor="startDate">Start</label>
+                            <input type="date" className="form-control" id="startDate" placeholder="Start Date"></input>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="endDate">End</label>
-                            <input type="date" class="form-control" id="endDate" placeholder="End Date"></input>
+                        <div className="form-group col-md-6">
+                            <label htmlFor="endDate">End</label>
+                            <input type="date" className="form-control" id="endDate" placeholder="End Date"></input>
                         </div>
                     </div>
                     <label>User Preferences</label>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="shoppingCheck"></input>
-                            <label class="form-check-label" for="gridCheck">Shopping</label>
+                    <div className="form-group">
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" id="shoppingCheck"></input>
+                            <label className="form-check-label" htmlFor="gridCheck">Shopping</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="nightLifeCheck"></input>
-                            <label class="form-check-label" for="gridCheck">Nightlife</label>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" id="nightLifeCheck"></input>
+                            <label className="form-check-label" htmlFor="gridCheck">Nightlife</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="siteSeeingCheck"></input>
-                            <label class="form-check-label" for="gridCheck">Siteseeing</label>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" id="siteSeeingCheck"></input>
+                            <label className="form-check-label" htmlFor="gridCheck">Siteseeing</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="foodCheck"></input>
-                            <label class="form-check-label" for="gridCheck">Food</label>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" id="foodCheck"></input>
+                            <label className="form-check-label" htmlFor="gridCheck">Food</label>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Let's Go!</button>
+                    <button 
+                        onClick={() => this.props.searchYelpApi(this.state.searchLocation)}
+                        // onClick={console.log('I have clicked this dumb button!!!!')}
+                        type="submit" className="btn btn-primary">Let's Go!
+                    </button>
                 </form>
             </div>
         )
     }
+
+
 }
