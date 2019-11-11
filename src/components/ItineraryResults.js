@@ -13,7 +13,7 @@ export default class ItineraryResults extends React.Component {
             businesses: []
         }
 
-        console.log(this.state)
+        console.log("itinerary results Businesses: ", this.state.businesses);
     }
 
         
