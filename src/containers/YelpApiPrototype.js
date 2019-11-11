@@ -29,7 +29,6 @@ export default class YelpApiPrototype extends React.Component {
             }
         })
         .then(response => {
-            //// Currently not working should be able to load the json data into the business array eventually
             console.log("the response", response)
 
             this.setState({

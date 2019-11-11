@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/HomePage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import YelpApiPrototype from '../containers/YelpApiPrototype';
 
 export default class HomePage extends React.Component {
     constructor(props) {
