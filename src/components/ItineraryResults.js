@@ -6,6 +6,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default class ItineraryResults extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            businesses: []
+        }
+
+        console.log(this.state)
+    }
+
+        
     render() {
         return (
             <div>

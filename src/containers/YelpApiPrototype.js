@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import HomePage from '../components/HomePage.js';
+import ItineraryResults from '../components/ItineraryResults.js'
 
     
 export default class YelpApiPrototype extends React.Component {
@@ -8,7 +9,7 @@ export default class YelpApiPrototype extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            businesses: [],
+            businesses: {},
             business: {
                 id: '',
                 name: '',
@@ -27,12 +28,14 @@ export default class YelpApiPrototype extends React.Component {
                 Authorization: `Bearer gdm9arC6maslC6J-rpr6AtwsmJbY9XnwzPMVsUI7Kwn7-v_b9rIkfgoN9sDcBJrVg7qij10jCTbW4tDqpWWQJRGSHuJkF_xhWHZEAEaF7ESIWZ31g-AFRB2LFt_FXXYx`
             }
         })
-        .then(businesses => {
-            console.log(businesses)
+        .then(response => {
             //// Currently not working should be able to load the json data into the business array eventually
+            console.log("the response", response)
+
             this.setState({
-                businesses: businesses
-            }, console.log(this.state.businesses));
+                businesses: response.data.businesses
+            }, 
+            console.log("state after business" , this.state.businesses));
         })
         .catch((err) => {
             console.log ('error')
@@ -49,8 +52,10 @@ export default class YelpApiPrototype extends React.Component {
         return(
             <div>
                 <h1> Yelp Api Prototype </h1>
-                <HomePage
-                businesses={this.state.businesses}/>
+                <HomePage/>
+                <ItineraryResults
+                    businesses = {this.state.businesses}
+                />
             </div>
         )
     }
