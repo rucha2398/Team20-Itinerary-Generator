@@ -9,11 +9,12 @@ export default class ActivityDetails extends React.Component {
     render() {
         return (
             <div className="container-fluid">
+                {console.log(this.props.business)}
                 <h1>More details</h1>
                 <div className="row">
                     <div className="text-left col-10">
                         <button className="btn btn-primary">
-                            <i class="fa fa-arrow-left">&nbsp;Go back</i>
+                            <i className="fa fa-arrow-left">&nbsp;Go back</i>
                         </button>
                     </div>
                     <div className="text-right col-2 row">

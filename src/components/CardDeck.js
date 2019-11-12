@@ -8,7 +8,7 @@ export default class CardDeck extends React.Component {
 
     render() {
         return (
-            <div className="card-deck col-lg-4 col-md-4 col-sm-12 col-12">
+            <div className="card-deck">
                 <Card title="Title" body="Sample body" />
                 <Card title="Title" body="Sample body" />
                 <Card title="Title" body="Sample body" />

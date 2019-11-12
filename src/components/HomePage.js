@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/HomePage.css';
+import { Link } from "react-router-dom";
+
 
 export default class HomePage extends React.Component {
     constructor(props) {
@@ -66,7 +68,9 @@ export default class HomePage extends React.Component {
                                 key={business.businessId}>
                                 <div className="row">
                                     <div className="col-6">
-                                        <h2>{business.name}</h2>
+                                        <Link business={business} to={`${business.name}`}>
+                                            <h2>{business.name}</h2>
+                                        </Link>
                                         <div>Phone: {business.display_phone}</div>
                                         <div>Street Address: {business.location.display_address[0]}</div>
                                         <div>City/State: {business.location.display_address[1]}</div>

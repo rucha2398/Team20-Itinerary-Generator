@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import HomePage from '../components/HomePage.js';
 
+
     
 export default class YelpApiPrototype extends React.Component {
 
@@ -54,20 +55,19 @@ export default class YelpApiPrototype extends React.Component {
 
 
     render() {
-        return(
+        return (
             <div>
                 <h1>Yelp API Prototype</h1>
 
                 <div className="row">
-                    <div className="col-xl-12">
+                        <div className="col-xl-12">
                         <HomePage
                             searchLocation={this.searchLocation}
                             selectBusiness={this.selectBusiness}
-                            businesses={this.state.businesses}/>
+                                    businesses={this.state.businesses} />
+                    </div>
                     </div>
                 </div>
-
-            </div>
         )
     }
 }
