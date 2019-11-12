@@ -57,13 +57,31 @@ export default class HomePage extends React.Component {
                     <button
                         onClick={() => this.props.searchLocation(this.state.searchLocation)}
                         className="btn btn-primary">Search</button>
-                </li>
+                    </li>
+                    {console.log(this.props.businesses)}
                 {
                     this.props.businesses.map(business =>
                         <li onClick={() => this.props.selectBusiness(business.businessId)}
                             className="list-group-item"
-                            key={business.businessId}>
-                            <h2>{business.name}</h2>
+                                key={business.businessId}>
+                                <div className="row">
+                                    <div className="col-6">
+                                        <h2>{business.name}</h2>
+                                        <div>Phone: {business.display_phone}</div>
+                                        <div>Street Address: {business.location.display_address[0]}</div>
+                                        <div>City/State: {business.location.display_address[1]}</div>
+                                        <div>Rating: {business.rating} out of 5</div>
+                                        <div>Price: {business.price}</div>
+
+
+                                    </div>
+                                    <div className="col-6">
+                                        <img src={business.image_url} style={{ width: 200 }} />
+                                    </div>
+                                </div>
+
+
+
                         </li>
                     )
                 }
