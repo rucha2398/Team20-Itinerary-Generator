@@ -68,7 +68,7 @@ export default class HomePage extends React.Component {
                                 key={business.businessId}>
                                 <div className="row">
                                     <div className="col-6">
-                                        <Link business={business} to={`${business.name}`}>
+                                        <Link to={`${business.name}/${business.display_phone}/${business.location.display_address[0]}/${business.location.display_address[1]}/${business.rating}/${business.price}`}>
                                             <h2>{business.name}</h2>
                                         </Link>
                                         <div>Phone: {business.display_phone}</div>
