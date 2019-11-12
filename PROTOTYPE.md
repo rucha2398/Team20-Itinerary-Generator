@@ -10,9 +10,10 @@ As of now, we allow users of our application to search the API by providing a lo
 We are currently rendering the top 20 restaurant names for the given location. We also render the restaurant's image, phone number, street address, city/state, rating, and price category associated with each restaurant. 
 
 ### Details Results: 
+Under the details result page, we currently render the Address, Phone number, Rating, and Price for the restaurant that was clicked. We plan to add images and further details over the next few weeks as we build on the functionality.
 
 ### Heroku Link: 
-
+https://secret-meadow-80762.herokuapp.com/
 
 ### Example Queries: 
 Location #1: Boston
