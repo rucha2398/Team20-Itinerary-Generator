@@ -71,11 +71,7 @@ export default class HomePage extends React.Component {
                                         <Link to={`${business.name}/${business.display_phone}/${business.location.display_address[0]}/${business.location.display_address[1]}/${business.rating}/${business.price}`}>
                                             <h2>{business.name}</h2>
                                         </Link>
-                                        <div>Phone: {business.display_phone}</div>
-                                        <div>Street Address: {business.location.display_address[0]}</div>
-                                        <div>City/State: {business.location.display_address[1]}</div>
-                                        <div>Rating: {business.rating} out of 5</div>
-                                        <div>Price: {business.price}</div>
+                                        
 
 
                                     </div>

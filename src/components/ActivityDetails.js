@@ -23,13 +23,9 @@ export default class ActivityDetails extends React.Component {
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className="col-6">
-                        <h3>{this.props.activity}</h3>
-                        <CardDeck />
-                    </div>
+                
 
-                    <div className="col-6">
+                    <div >
                         <h3>More details:</h3>
                         <ul className="list-group">
                             <li className="list-group-item text-left">Address: {this.props.match.params.addy1}, {this.props.match.params.addy2}</li>
@@ -39,7 +35,6 @@ export default class ActivityDetails extends React.Component {
                             </ul>
 
                     </div>
-                </div>
             </div>
         )
     }
