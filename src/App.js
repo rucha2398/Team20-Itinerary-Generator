@@ -9,7 +9,7 @@ function App() {
       <div className="App">
           <Router>
               <Route exact path="/" component={YelpApiPrototype} />
-              <Route exact path="/:name/:phone/:addy1/:addy2/:rating/:price" render={business => <ActivityDetails business={business}/>} />
+              <Route exact path="/:name/:phone/:addy1/:addy2/:rating/:price" isAuthed={true} render={props => <ActivityDetails {...props}/>} />
             </Router>
     </div>
   );
