@@ -39,6 +39,19 @@ export default class YelpApiPrototype extends React.Component {
         })
     }
 
+    selectBusiness = businessId =>
+        axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/${businessId}`, {
+            headers: {
+                Authorization: `Bearer gdm9arC6maslC6J-rpr6AtwsmJbY9XnwzPMVsUI7Kwn7-v_b9rIkfgoN9sDcBJrVg7qij10jCTbW4tDqpWWQJRGSHuJkF_xhWHZEAEaF7ESIWZ31g-AFRB2LFt_FXXYx`
+            }
+        })
+        .then(business => {
+            console.log(business)
+            this.setState({
+                business: business
+            })
+        })
+
 
     render() {
         return(
@@ -49,6 +62,7 @@ export default class YelpApiPrototype extends React.Component {
                     <div className="col-xl-12">
                         <HomePage
                             searchLocation={this.searchLocation}
+                            selectBusiness={this.selectBusiness}
                             businesses={this.state.businesses}/>
                     </div>
                 </div>
