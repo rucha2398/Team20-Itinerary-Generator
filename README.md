@@ -80,5 +80,8 @@ The web API in use will be the Yelp API. This API can be accessed by signing up 
 
 https://github.com/rucha2398/Team20-Itinerary-Generator
 
+**Link to our Server repo:** 
+https://github.com/smajeti16/Team20-Itinerary-Generator-Server
+
 
 
