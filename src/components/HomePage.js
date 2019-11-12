@@ -1,7 +1,5 @@
 import React from 'react';
 import '../styles/HomePage.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export default class HomePage extends React.Component {
     constructor(props) {
@@ -11,32 +9,16 @@ export default class HomePage extends React.Component {
         }
     }
 
-    locationChanged = event => {
+    searchLocationChanged = event =>
         this.setState({
             searchLocation: event.target.value
         })
-    }
 
     render() {
-        return(
-            <div className="container">
-                <form>
-                    <div className="form-row">
-                        <div className="form-group col-md-2">
-                        <i> <FontAwesomeIcon icon={faSearch}/> </i>
-                        </div>
-                        <div className="form-group col-md-10">
-                            <input type="search" className="form-control" id="searchBar" placeholder="search"></input>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="location">Location</label>
-                        <input onChange = {this.locationChanged}
-                            value = {this.state.searchLocation}
-                            type="text" className="form-control" id="location" placeholder="Amsterdam">
-                        </input>
-                    </div>
-                    <div className="form-row">
+        return(<div>
+            <h2>Itinerary Generator</h2>
+
+            <div className="form-row">
                         <div className="form-group col-md-6">
                             <label htmlFor="startDate">Start</label>
                             <input type="date" className="form-control" id="startDate" placeholder="Start Date"></input>
@@ -63,17 +45,23 @@ export default class HomePage extends React.Component {
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" id="foodCheck"></input>
                             <label className="form-check-label" htmlFor="gridCheck">Food</label>
-                        </div>
-                    </div>
+                 </div>
+            
+            <ul className="list-group">
+                <li className="list-group-item">
+                    <label htmlFor="Enter a location: ">Location</label>
+                    <input
+                        onChange={this.searchLocationChanged}
+                        value={this.state.searchLocation}
+                        className="form-control"/>
+                    <button
+                        onClick={() => this.props.searchLocation(this.state.searchLocation)}
+                        className="btn btn-primary">Search</button>
+                </li>
+            </ul>
+        </div>
 
-                    <button 
-                        onClick={() => this.props.searchYelpApi(this.state.searchLocation)}
-                        type="submit" className="btn btn-primary">Let's Go!
-                    </button>
-                </form>
-            </div>
-        )
+        </div>
+    )
     }
-
-
 }

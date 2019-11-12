@@ -12,8 +12,9 @@ export default class ItineraryResults extends React.Component {
         this.state = {
             businesses: []
         }
-
-        console.log("itinerary results Businesses: ", this.state.businesses);
+        if (this.state.businesses === undefined || this.state.businesses.length == 0) {
+            console.log("hi")
+        }
     }
 
         
