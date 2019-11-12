@@ -7,10 +7,9 @@ The Yelp Fusion API provides local content and user reviews for millions of busi
 As of now, we allow users of our application to search the API by providing a location (city, state, or country, for example).
 
 ### Summary Results: 
-We are currently rendering the top 20 restaurant names for the given location. Over the next few weeks we plan to also render an image associated with the restaurant as well as ratings. 
+We are currently rendering the top 20 restaurant names for the given location. We also render the restaurant's image, phone number, street address, city/state, rating, and price category associated with each restaurant. 
 
 ### Details Results: 
-
 
 ### Heroku Link: 
 
