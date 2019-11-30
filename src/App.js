@@ -3,6 +3,7 @@ import './App.css';
 import YelpApiPrototype from '../src/containers/YelpApiPrototype';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ActivityDetails from './components/ActivityDetails';
+import Login from '../src/components/Login';
 
 function App() {
   return (
