@@ -19,12 +19,24 @@ export default class Login extends React.Component {
                 <div className="col-sm-4">
                 <div className="block">
                     <label htmlFor="first name"> First Name: </label>
-                    <input className="form-control wbdv-field wbdv-firstName"
+                    <input className="form-control form-inline wbdv-field wbdv-firstName"
                                     id="firstNameFld"
                                     placeholder="Jane"/>
                 </div>
                 </div>
             </div>
+
+            <form>                      
+                <div className="form-group form-inline">       
+                <div className="col-sm-4"></div>
+                    <label htmlFor="exampleInputEmail1" className="email">Email address: </label>
+                        <input id="emailFld"
+                        type="email" 
+                        className="form-control" 
+                        id="exampleInputEmail1" 
+                        placeholder="Email"/>
+                </div>
+            </form>
 
             <div className="form-group row">
                 <div className="col-sm-4"></div>

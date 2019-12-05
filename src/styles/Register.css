@@ -2,3 +2,7 @@ label {
     display: inline-block;
     text-align: right;
 }
+
+label.email {
+    padding: 15px;
+}
