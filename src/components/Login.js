@@ -32,6 +32,8 @@ export default class Login extends React.Component {
                         class="form-control wbdv-field wbdv-password"
                         id="password" 
                         placeholder="Password"/>
+                <a href="https://www.w3schools.com/html/"
+                    id="wbdv-link wbdv-forgot-password">Forgot Password?</a>
             </div>
             </div>
    
@@ -47,11 +49,8 @@ export default class Login extends React.Component {
             <div class="form-group row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
-                <a href="../profile/profile.template.client.html"
-                    id="wbdv-link wbdv-register">New to Whiteboard?</a>
                 <br/>
-                <a href="https://www.w3schools.com/html/"
-                    id="wbdv-link wbdv-forgot-password">Forgot Password?</a>
+                
             </div>
    </div>
    </div>

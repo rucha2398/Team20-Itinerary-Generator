@@ -3,13 +3,13 @@ import './App.css';
 import YelpApiPrototype from '../src/containers/YelpApiPrototype';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ActivityDetails from './components/ActivityDetails';
-import Login from '../src/components/Login';
+import Register from '../src/components/Register';
 
 function App() {
   return (
       <div className="App">
           <Router>
-              <Route exact path="/" component={YelpApiPrototype} />
+              <Route exact path="/" component={Register} />
               <Route exact path="/:name/:phone/:addy1/:addy2/:rating/:price" isAuthed={true} render={props => <ActivityDetails {...props}/>} />
             </Router>
     </div>
