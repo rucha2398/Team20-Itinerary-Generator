@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import HomePage from '../components/HomePage.js';
-
+import YelpProto from '../styles/YelpProto.css';
 
     
 export default class YelpApiPrototype extends React.Component {
