@@ -15,44 +15,29 @@ const user1 =
       }
 
 
-// const users = userService.findAllUsers();
-// // const users2 = userService.createUser(user1);
-
-// console.log(users);
-// console.log(users2);
 
     
 export default class YelpApiPrototype extends React.Component {
 
     constructor(props) {
         super(props)
-        // this.state = {
-        //     businesses: [],
-        //     business: {
-        //         Name: ''
-        //     },
-        //     users: []
-        // }
-        this.componentDidMount = this.componentDidMount.bind(this);
         this.searchLocation = this.searchLocation.bind(this);
         this.findRestaurauntByLocation = this.findRestaurauntByLocation.bind(this);
         this.selectBusiness = this.selectBusiness.bind(this);
-        // this.getUsers = this.getUsers.bind(this);
 
         let userService = UserService.getInstance();
         this.users = userService.findAllUsers();
+        this.users.then(result => this.setState({ users: result }));
+        this.renderUsers = this.renderUsers.bind(this);
+      
 
         this.state = {
             businesses: [],
             business: {
                 Name: ''
             },
-            users: this.users
+            users: []
         }
-    }
-
-    componentDidMount() {
-        this.findRestaurauntByLocation("Boston")
     }
 
     searchLocation = searchLocationChanged =>
@@ -68,7 +53,6 @@ export default class YelpApiPrototype extends React.Component {
             this.setState({
                 businesses: response.data.businesses
             })
-            console.log("after set state", this.state.businesses)
         })
         .catch((err) => {
             console.log ('error', err)
@@ -86,25 +70,24 @@ export default class YelpApiPrototype extends React.Component {
             this.setState({
                 business: business
             })
-        })
+            })
 
-    // getUsers = () => userService.findAllUsers();
+    renderUsers() {
+        return this.state.users.map(user => <li>{user.firstName}</li>);
+    } 
 
     render() {
         return (
             <div>
-                {/* {console.log(getUsers())} */}
-
-                {console.log("printing user state", this.state.users)}
-                <h1>Yelp API Prototype</h1>
-
                 <div>
-                {console.log("second print", this.state.userService.findAllUsers())}
-                {/* {userService.findAllUsers().map(user =>
-                        <h1>{user.id}</h1>
-                    )
-                } */}
+                    <ul>
+                        {this.renderUsers()}
+                    </ul>
+
                 </div>
+
+                <h1>Yelp API Prototype</h1>
+ 
 
                 <div className="row">
                         <div className="col-xl-12">

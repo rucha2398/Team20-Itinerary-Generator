@@ -2,9 +2,6 @@ import React from 'react';
 
 export default class UserService {
 
-    // componentDidMount() {
-    //     this.findAllUsers();
-    // }
 
     static myInstance = null;
 
@@ -17,7 +14,7 @@ export default class UserService {
     }
 
     findAllUsers = () => (
-        fetch("http://localhost:8181/api/users", {
+         fetch("http://localhost:8080/api/users", {
             method: "GET",
             headers: {
                 'content-type': 'application/json',
@@ -25,24 +22,15 @@ export default class UserService {
                 'Access-Control-Allow-Credentials': true,
                 'Access-Control-Allow-Origin': true
             }
-        }).then(response => response.json())
+        }).then(response => response.clone().json())
         .then(data => {
             let users = data;
             return users;
         })
-        // .then(function (response) {
-        //         console.log("Response: ", response);
-        //         let responseBody = response.clone().json()
-        //         console.log(responseBody);
-        //         return responseBody;
-        //     })
-        //     .then(function (data) {
-        //         console.log(data);
-        //     })
         )
 
     createUser = user => {
-        fetch(`http://localhost:8181/api/users/{user}`, {
+        fetch("http://localhost:8080/api/users/{user}", {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
@@ -60,7 +48,7 @@ export default class UserService {
     }
 
     findUserById = userId => {
-        fetch(`http://localhost:8181/api/users/{userId}`, {
+        fetch("http://localhost:8080/api/users/{userId}", {
             method: "GET",
             headers: {
                 'content-type': 'application/json',
@@ -76,7 +64,7 @@ export default class UserService {
     }
 
     updateUser = (userId, newUser) => {
-        fetch(`http://localhost:8181/api/users/{userId}/{newUser}`, {
+        fetch("http://localhost:8080/api/users/{userId}/{newUser}", {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',
@@ -92,7 +80,7 @@ export default class UserService {
     }
 
     deleteUser = userId => {
-        fetch(`http://localhost:8181/api/users/{userId}`, {
+        fetch("http://localhost:8080/api/users/{userId}", {
             method: "DELETE",
             headers: {
                 'content-type': 'application/json',
