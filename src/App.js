@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
-import YelpApiPrototype from '../src/containers/YelpApiPrototype';
+import YelpApiPrototype from './containers/YelpApiPrototype';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import ActivityDetails from './components/ActivityDetails';
-import Register from '../src/components/Register';
 
 function App() {
   return (

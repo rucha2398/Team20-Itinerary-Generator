@@ -94,7 +94,6 @@ export default class HomePage extends React.Component {
                         }
                     </ul>
                 </div>
-
             </div>
         )
     }

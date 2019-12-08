@@ -57,7 +57,7 @@ export default class YelpApiPrototype extends React.Component {
     render() {
         return (
             <div>
-                <h1>Yelp API Prototype</h1>
+                {/* <h1>Yelp API Prototype</h1> */}
                 <HomePage
                     searchLocation={this.searchLocation}
                     selectBusiness={this.selectBusiness}
