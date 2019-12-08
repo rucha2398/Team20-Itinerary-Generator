@@ -16,7 +16,7 @@ const user1 =
 
 
 
-    
+
 export default class YelpApiPrototype extends React.Component {
 
     constructor(props) {
@@ -43,20 +43,21 @@ export default class YelpApiPrototype extends React.Component {
     searchLocation = searchLocationChanged =>
         this.findRestaurauntByLocation(searchLocationChanged)
 
-    findRestaurauntByLocation = location => {   
+    findRestaurauntByLocation = location => {
         axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${location}`, {
             headers: {
                 Authorization: `Bearer gdm9arC6maslC6J-rpr6AtwsmJbY9XnwzPMVsUI7Kwn7-v_b9rIkfgoN9sDcBJrVg7qij10jCTbW4tDqpWWQJRGSHuJkF_xhWHZEAEaF7ESIWZ31g-AFRB2LFt_FXXYx`
             }
         })
-        .then(response => {
-            this.setState({
-                businesses: response.data.businesses
+            .then(response => {
+                this.setState({
+                    businesses: response.data.businesses
+                })
+                console.log("after set state", this.state.businesses)
             })
-        })
-        .catch((err) => {
-            console.log ('error', err)
-        })
+            .catch((err) => {
+                console.log('error', err)
+            })
     }
 
     selectBusiness = businessId =>
@@ -65,11 +66,11 @@ export default class YelpApiPrototype extends React.Component {
                 Authorization: `Bearer gdm9arC6maslC6J-rpr6AtwsmJbY9XnwzPMVsUI7Kwn7-v_b9rIkfgoN9sDcBJrVg7qij10jCTbW4tDqpWWQJRGSHuJkF_xhWHZEAEaF7ESIWZ31g-AFRB2LFt_FXXYx`
             }
         })
-        .then(business => {
-            console.log(business)
-            this.setState({
-                business: business
-            })
+            .then(business => {
+                console.log(business)
+                this.setState({
+                    business: business
+                })
             })
 
     renderUsers() {
