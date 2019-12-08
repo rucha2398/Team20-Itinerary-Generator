@@ -1,5 +1,6 @@
 import events from './events.json';
 
+// need to change all these fxns to call the api 
 export default class EventService {
     static myInstance = null;
 
@@ -23,13 +24,13 @@ export default class EventService {
     updateEvent = (eventId, newEvent) => {
         events = events.map(event => event.id == eventId ? newEvent : event)
     }
-
+    
     updateEvent = (eventId, newEvent) => {
         events = events.map(event => {
             if(event.id != eventId) {
                 return event;
             } else {
-                return newEvnet;
+                return newEvent;
             }
         })
     }

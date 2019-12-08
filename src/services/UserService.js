@@ -1,29 +1,109 @@
-import users from './users.json';
+import React from 'react';
 
 export default class UserService {
+
+    // componentDidMount() {
+    //     this.findAllUsers();
+    // }
+
     static myInstance = null;
 
     static getInstance() {
-        if (CourseService.myInstance == null) {
-            CourseService.myInstance =
+        if (UserService.myInstance == null) {
+            UserService.myInstance =
                 new UserService();
         }
         return this.myInstance;
     }
 
+    findAllUsers = () => (
+        fetch("http://localhost:8181/api/users", {
+            method: "GET",
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
+            }
+        }).then(response => response.json())
+        .then(data => {
+            let users = data;
+            return users;
+        })
+        // .then(function (response) {
+        //         console.log("Response: ", response);
+        //         let responseBody = response.clone().json()
+        //         console.log(responseBody);
+        //         return responseBody;
+        //     })
+        //     .then(function (data) {
+        //         console.log(data);
+        //     })
+        )
+
     createUser = user => {
-        users.push(user)
+        fetch(`http://localhost:8181/api/users/{user}`, {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
+            }
+        })
+            .then(function(response) {
+                // let responseBody = response.clone().json()
+                // return responseBody;
+                return response.json()
+            })
     }
-    findAllUsers = () => {
-        return users
-    }
+
     findUserById = userId => {
-        return users.find(user => user.id == userId)
+        fetch(`http://localhost:8181/api/users/{userId}`, {
+            method: "GET",
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
+            }
+        })
+            .then(function(response) {
+                let responseBody = response.clone().json()
+                return responseBody;
+            })
     }
+
     updateUser = (userId, newUser) => {
-        users = users.map(user => user.id == userId ? newUser : user)
+        fetch(`http://localhost:8181/api/users/{userId}/{newUser}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
+            }
+        })
+            .then(function(response) {
+                let responseBody = response.clone().json()
+                return responseBody;
+            })
     }
+
     deleteUser = userId => {
-        users = users.filter(user => user.id !== userId)
+        fetch(`http://localhost:8181/api/users/{userId}`, {
+            method: "DELETE",
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
+            }
+        })
+            .then(function(response) {
+                let responseBody = response.clone().json()
+                return responseBody;
+            })
     }
 }

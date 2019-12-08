@@ -2,17 +2,52 @@ import React from 'react';
 import axios from 'axios';
 import HomePage from '../components/HomePage.js';
 import YelpProto from '../styles/YelpProto.css';
+import UserService from '../services/UserService'
+
+const user1 = 
+    {
+        "id": "234",
+        "email": "mounica@gmail.com",
+        "first_name": "Mounica",
+        "last_name": "Kamesam",
+        "password": "pass123",
+        "username": "mounicaLikesCats"
+      }
+
+
+// const users = userService.findAllUsers();
+// // const users2 = userService.createUser(user1);
+
+// console.log(users);
+// console.log(users2);
 
     
 export default class YelpApiPrototype extends React.Component {
 
     constructor(props) {
         super(props)
+        // this.state = {
+        //     businesses: [],
+        //     business: {
+        //         Name: ''
+        //     },
+        //     users: []
+        // }
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.searchLocation = this.searchLocation.bind(this);
+        this.findRestaurauntByLocation = this.findRestaurauntByLocation.bind(this);
+        this.selectBusiness = this.selectBusiness.bind(this);
+        // this.getUsers = this.getUsers.bind(this);
+
+        let userService = UserService.getInstance();
+        this.users = userService.findAllUsers();
+
         this.state = {
             businesses: [],
             business: {
                 Name: ''
-            }
+            },
+            users: this.users
         }
     }
 
@@ -53,11 +88,23 @@ export default class YelpApiPrototype extends React.Component {
             })
         })
 
+    // getUsers = () => userService.findAllUsers();
 
     render() {
         return (
             <div>
+                {/* {console.log(getUsers())} */}
+
+                {console.log("printing user state", this.state.users)}
                 <h1>Yelp API Prototype</h1>
+
+                <div>
+                {console.log("second print", this.state.userService.findAllUsers())}
+                {/* {userService.findAllUsers().map(user =>
+                        <h1>{user.id}</h1>
+                    )
+                } */}
+                </div>
 
                 <div className="row">
                         <div className="col-xl-12">
