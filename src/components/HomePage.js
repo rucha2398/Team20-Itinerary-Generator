@@ -60,7 +60,6 @@ export default class HomePage extends React.Component {
                         onClick={() => this.props.searchLocation(this.state.searchLocation)}
                         className="btn btn-primary">Search</button>
                     </li>
-                    {console.log(this.props.businesses)}
                 {
                     this.props.businesses.map(business =>
                         <li onClick={() => this.props.selectBusiness(business.businessId)}
