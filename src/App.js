@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import YelpApiPrototype from './containers/YelpApiPrototype';
+import ActivityDetails from './components/ActivityDetails';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
