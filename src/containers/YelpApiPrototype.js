@@ -2,22 +2,42 @@ import React from 'react';
 import axios from 'axios';
 import HomePage from '../components/HomePage.js';
 import YelpProto from '../styles/YelpProto.css';
+import UserService from '../services/UserService'
+
+const user1 = 
+    {
+        "id": "234",
+        "email": "mounica@gmail.com",
+        "first_name": "Mounica",
+        "last_name": "Kamesam",
+        "password": "pass123",
+        "username": "mounicaLikesCats"
+      }
+
+
 
 
 export default class YelpApiPrototype extends React.Component {
 
     constructor(props) {
         super(props)
+        this.searchLocation = this.searchLocation.bind(this);
+        this.findRestaurauntByLocation = this.findRestaurauntByLocation.bind(this);
+        this.selectBusiness = this.selectBusiness.bind(this);
+
+        let userService = UserService.getInstance();
+        this.users = userService.findAllUsers();
+        this.users.then(result => this.setState({ users: result }));
+        this.renderUsers = this.renderUsers.bind(this);
+      
+
         this.state = {
             businesses: [],
             business: {
                 Name: ''
-            }
+            },
+            users: []
         }
-    }
-
-    componentDidMount() {
-        this.findRestaurauntByLocation("Boston")
     }
 
     searchLocation = searchLocationChanged =>
@@ -53,15 +73,32 @@ export default class YelpApiPrototype extends React.Component {
                 })
             })
 
+    renderUsers() {
+        return this.state.users.map(user => <li>{user.firstName}</li>);
+    } 
 
     render() {
         return (
             <div>
-                {/* <h1>Yelp API Prototype</h1> */}
-                <HomePage
-                    searchLocation={this.searchLocation}
-                    selectBusiness={this.selectBusiness}
-                    businesses={this.state.businesses} />
-            </div>)
+                <div>
+                    <ul>
+                        {this.renderUsers()}
+                    </ul>
+
+                </div>
+
+                <h1>Yelp API Prototype</h1>
+ 
+
+                <div className="row">
+                        <div className="col-xl-12">
+                        <HomePage
+                            searchLocation={this.searchLocation}
+                            selectBusiness={this.selectBusiness}
+                                    businesses={this.state.businesses} />
+                    </div>
+                    </div>
+                </div>
+        )
     }
 }
