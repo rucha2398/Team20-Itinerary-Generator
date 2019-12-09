@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import UserService from './services/UserService';
 import EventService from './services/EventService';
 import ItineraryService from './services/ItineraryService';
+import RequestService from './services/RequestService';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -18,6 +19,7 @@ export default class App extends React.Component {
         let userService = UserService.getInstance();
         let eventService = EventService.getInstance();
         let itineraryService = ItineraryService.getInstance();
+        let requestService = RequestService.getInstance();
 
         // findAllUsers
         this.users = userService.findAllUsers();
@@ -31,6 +33,11 @@ export default class App extends React.Component {
         //findAllItineraries
         this.itineraries = itineraryService.findAllItineraries();
         this.itineraries.then(result => this.setState({ itineraries: result }));
+
+        // findAllRequests
+        this.requests = requestService.findAllRequests();
+        this.requests.then(result => this.setState({ requests: result }));
+
 
 
         
@@ -61,6 +68,8 @@ export default class App extends React.Component {
                 {this.state.users && console.log(this.state.users, 'users')}
                 {this.state.events && console.log(this.state.events, 'events')}
                 {this.state.itineraries && console.log(this.state.itineraries, 'itineraries')}
+                {this.state.requests && console.log(this.state.requests, 'requests')/**SQL request table empty*/}
+
 
                 <Router>
                     <NavBar users={this.state.users}></NavBar>
