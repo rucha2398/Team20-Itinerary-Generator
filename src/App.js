@@ -8,6 +8,7 @@ import UserService from './services/UserService';
 import EventService from './services/EventService';
 import ItineraryService from './services/ItineraryService';
 import RequestService from './services/RequestService';
+import TravelAgentService from './services/TravelAgentService';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -20,6 +21,7 @@ export default class App extends React.Component {
         let eventService = EventService.getInstance();
         let itineraryService = ItineraryService.getInstance();
         let requestService = RequestService.getInstance();
+        let travelAgentService = TravelAgentService.getInstance();
 
         // findAllUsers
         this.users = userService.findAllUsers();
@@ -37,6 +39,12 @@ export default class App extends React.Component {
         // findAllRequests
         this.requests = requestService.findAllRequests();
         this.requests.then(result => this.setState({ requests: result }));
+
+        // findAllTravelAgents
+        this.travelAgents = travelAgentService.findAllTravelAgents();
+        this.travelAgents.then(result => this.setState({ travelAgents: result }));
+
+       
 
 
 
@@ -69,6 +77,7 @@ export default class App extends React.Component {
                 {this.state.events && console.log(this.state.events, 'events')}
                 {this.state.itineraries && console.log(this.state.itineraries, 'itineraries')}
                 {this.state.requests && console.log(this.state.requests, 'requests')/**SQL request table empty*/}
+                {this.state.travelAgents && console.log(this.state.travelAgents, 'travelAgents')/**SQL request table empty*/}
 
 
                 <Router>
