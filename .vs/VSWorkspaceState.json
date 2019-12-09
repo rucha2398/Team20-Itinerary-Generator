@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\src",
+    "\\src\\components",
+    "\\src\\constants",
+    "\\src\\containers",
+    "\\src\\icons",
+    "\\src\\services",
+    "\\src\\styles"
+  ],
+  "SelectedNode": "\\src\\constants\\Request.js",
+  "PreviewInSolutionExplorer": false
+}

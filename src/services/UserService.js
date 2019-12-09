@@ -45,8 +45,8 @@ export default class UserService {
             })
     }
 
-    findUserById = userId => {
-        fetch("http://localhost:8080/api/users/{userId}", {
+    findUserById = userId => (
+        fetch(`http://localhost:8080/api/users/${userId}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',
@@ -54,16 +54,18 @@ export default class UserService {
                 'Access-Control-Allow-Credentials': true,
                 'Access-Control-Allow-Origin': true
             }
-        })
-            .then(function(response) {
-                let responseBody = response.clone().json()
-                return responseBody;
+        }).then(response => response.clone().json())
+            .then(data => {
+                let user = data;
+                console.log(user, 'response');
+                return user;
             })
-    }
+    )
 
-    updateUser = (userId, newUser) => {
-        fetch("http://localhost:8080/api/users/{userId}/{newUser}", {
+    updateUser = (userId, newUser) => (
+        fetch(`http://localhost:8080/api/users/${userId}`, {
             method: "PUT",
+            body: JSON.stringify(newUser),
             headers: {
                 'content-type': 'application/json',
                 'Accept': 'application/json',
@@ -75,10 +77,10 @@ export default class UserService {
                 let responseBody = response.clone().json()
                 return responseBody;
             })
-    }
+    )
 
-    deleteUser = userId => {
-        fetch("http://localhost:8080/api/users/{userId}", {
+    deleteUser = userId => (
+        fetch(`http://localhost:8080/api/users/${userId}`, {
             method: "DELETE",
             headers: {
                 'content-type': 'application/json',
@@ -91,5 +93,5 @@ export default class UserService {
                 let responseBody = response.clone().json()
                 return responseBody;
             })
-    }
+    )
 }
