@@ -27,7 +27,7 @@ export default class EventService {
         })
         )
 
-    createEvent = event => {
+    createEvent = event => (
         fetch("http://localhost:8080/api/events", {
             method: "POST",
             body: JSON.stringify(event),
@@ -43,7 +43,7 @@ export default class EventService {
                 // return responseBody;
                 return response.clone().json()
             })
-    }
+    )
 
     findEventById = eventId => (
         fetch(`http://localhost:8080/api/events/${eventId}`, {

@@ -27,7 +27,7 @@ export default class UserService {
         })
         )
 
-    createUser = user => {
+    createUser = user => (
         fetch("http://localhost:8080/api/users", {
             method: "POST",
             body: JSON.stringify(user),
@@ -43,7 +43,7 @@ export default class UserService {
                 // return responseBody;
                 return response.clone().json()
             })
-    }
+    )
 
     findUserById = userId => (
         fetch(`http://localhost:8080/api/users/${userId}`, {

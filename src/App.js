@@ -11,7 +11,7 @@ import ItineraryService from './services/ItineraryService';
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-        // Purposely initalized without attributes due to guard pattern in render method 
+        // Purposely initalized without attributes due to guard pattern in render method below
         this.state = {}
 
         // Services
@@ -27,6 +27,10 @@ export default class App extends React.Component {
         // findAllEvents
         this.events = eventService.findAllEvents();
         this.events.then(result => this.setState({ events: result }));
+
+        //findAllItineraries
+        this.itineraries = itineraryService.findAllItineraries();
+        this.itineraries.then(result => this.setState({ itineraries: result }));
 
 
         
@@ -56,6 +60,8 @@ export default class App extends React.Component {
                  the board. */}
                 {this.state.users && console.log(this.state.users, 'users')}
                 {this.state.events && console.log(this.state.events, 'events')}
+                {this.state.itineraries && console.log(this.state.itineraries, 'itineraries')}
+
                 <Router>
                     <NavBar users={this.state.users}></NavBar>
 

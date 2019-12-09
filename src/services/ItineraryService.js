@@ -12,7 +12,7 @@ export default class ItineraryService {
     }
 
     findAllItineraries = () => (
-         fetch("http://localhost:8080/api/itineraries", {
+        fetch("http://localhost:8080/api/itineraries", {
             method: "GET",
             headers: {
                 'content-type': 'application/json',
@@ -21,13 +21,14 @@ export default class ItineraryService {
                 'Access-Control-Allow-Origin': true
             }
         }).then(response => response.clone().json())
-        .then(data => {
-            let itineraries = data;
-            return itineraries;
-        })
-        )
+            .then(data => {
+                let itineraries = data;
+                return itineraries;
+            })
+    )
 
-    createItineraries = itinerary => {
+
+    createItineraries = itinerary => (
         fetch("http://localhost:8080/api/itineraries", {
             method: "POST",
             body: JSON.stringify(itinerary),
@@ -38,15 +39,15 @@ export default class ItineraryService {
                 'Access-Control-Allow-Origin': true
             }
         })
-            .then(function(response) {
+            .then(function (response) {
                 // let responseBody = response.clone().json()
                 // return responseBody;
                 return response.clone().json()
             })
-    }
+    )
 
-    findItineraryById = itineraryId => {
-        fetch("http://localhost:8080/api/itineraries/{itineraryId}", {
+    findItineraryById = itineraryId => (
+        fetch(`http://localhost:8080/api/itineraries/${itineraryId}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',
@@ -54,16 +55,17 @@ export default class ItineraryService {
                 'Access-Control-Allow-Credentials': true,
                 'Access-Control-Allow-Origin': true
             }
-        })
-            .then(function(response) {
-                let responseBody = response.clone().json()
-                return responseBody;
+        }).then(response => response.clone().json())
+            .then(data => {
+                let itinerary = data;
+                return itinerary;
             })
-    }
+    )
 
-    updateItinerary = (itineraryId, newItinerary) => {
-        fetch("http://localhost:8080/api/itineraries/{itineraryId}/{newItinerary}", {
+    updateItinerary = (itineraryId, newItinerary) => (
+        fetch(`http://localhost:8080/api/itineraries/${itineraryId}`, {
             method: "PUT",
+            body: JSON.stringify(newItinerary),
             headers: {
                 'content-type': 'application/json',
                 'Accept': 'application/json',
@@ -71,14 +73,14 @@ export default class ItineraryService {
                 'Access-Control-Allow-Origin': true
             }
         })
-            .then(function(response) {
+            .then(function (response) {
                 let responseBody = response.clone().json()
                 return responseBody;
             })
-    }
+    )
 
-    deleteItinerary = itineraryId => {
-        fetch("http://localhost:8080/api/itineraries/{itineraryId}", {
+    deleteItinerary = itineraryId => (
+        fetch(`http://localhost:8080/api/itineraries/${itineraryId}`, {
             method: "DELETE",
             headers: {
                 'content-type': 'application/json',
@@ -87,9 +89,9 @@ export default class ItineraryService {
                 'Access-Control-Allow-Origin': true
             }
         })
-            .then(function(response) {
+            .then(function (response) {
                 let responseBody = response.clone().json()
                 return responseBody;
             })
-    }
+    )
 }
