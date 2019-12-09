@@ -5,23 +5,36 @@ import ActivityDetails from './components/ActivityDetails';
 import NavBar from './components/NavBar';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import UserService from './services/UserService';
+import EventService from './services/EventService';
+import ItineraryService from './services/ItineraryService';
 
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            users: [],
-            businesses: [],
-            foundUser: {}
-        }
+        // Purposely initalized without attributes due to guard pattern in render method 
+        this.state = {}
 
+        // Services
         let userService = UserService.getInstance();
+        let eventService = EventService.getInstance();
+        let itineraryService = ItineraryService.getInstance();
 
-  
-       
-
+        // findAllUsers
         this.users = userService.findAllUsers();
         this.users.then(result => this.setState({ users: result }));
+
+
+        // findAllEvents
+        this.events = eventService.findAllEvents();
+        this.events.then(result => this.setState({ events: result }));
+
+
+        
+
+
+
+
+       
 
         this.renderAllUsers = this.renderAllUsers.bind(this);
 
@@ -38,6 +51,11 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="App">
+                {/**Guard pattern below will allow us to ONLY render if this.state.events has a value. This can be used
+                 to pass values to different components as well, which should remove the need for redux if we do this across
+                 the board. */}
+                {this.state.users && console.log(this.state.users, 'users')}
+                {this.state.events && console.log(this.state.events, 'events')}
                 <Router>
                     <NavBar users={this.state.users}></NavBar>
 

@@ -57,7 +57,6 @@ export default class UserService {
         }).then(response => response.clone().json())
             .then(data => {
                 let user = data;
-                console.log(user, 'response');
                 return user;
             })
     )
