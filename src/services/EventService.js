@@ -1,7 +1,6 @@
-import events from './events.json';
-
-// need to change all these fxns to call the api 
 export default class EventService {
+
+
     static myInstance = null;
 
     static getInstance() {
@@ -12,31 +11,85 @@ export default class EventService {
         return this.myInstance;
     }
 
+    findAllEvents = () => (
+         fetch("http://localhost:8080/api/events", {
+            method: "GET",
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
+            }
+        }).then(response => response.clone().json())
+        .then(data => {
+            let events = data;
+            return events;
+        })
+        )
+
     createEvent = event => {
-        events.push(event)
-    }
-    findAllEvents = () =>  {
-        return events
-    }
-    findEventById = eventId => {
-        return events.find(event => event.id == eventId)
-    }
-    updateEvent = (eventId, newEvent) => {
-        events = events.map(event => event.id == eventId ? newEvent : event)
-    }
-    
-    updateEvent = (eventId, newEvent) => {
-        events = events.map(event => {
-            if(event.id != eventId) {
-                return event;
-            } else {
-                return newEvent;
+        fetch("http://localhost:8080/api/events", {
+            method: "POST",
+            body: JSON.stringify(event),
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
             }
         })
+            .then(function(response) {
+                // let responseBody = response.clone().json()
+                // return responseBody;
+                return response.clone().json()
+            })
+    }
+
+    findEventById = eventId => {
+        fetch("http://localhost:8080/api/events/{eventId}", {
+            method: "GET",
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
+            }
+        })
+            .then(function(response) {
+                let responseBody = response.clone().json()
+                return responseBody;
+            })
+    }
+
+    updateEvent = (eventId, newEvent) => {
+        fetch("http://localhost:8080/api/events/{eventId}/{newEvent}", {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
+            }
+        })
+            .then(function(response) {
+                let responseBody = response.clone().json()
+                return responseBody;
+            })
     }
 
     deleteEvent = eventId => {
-        events = events.filter(event => event.id !== eventId)
+        fetch("http://localhost:8080/api/events/{eventId}", {
+            method: "DELETE",
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
+            }
+        })
+            .then(function(response) {
+                let responseBody = response.clone().json()
+                return responseBody;
+            })
     }
-
 }

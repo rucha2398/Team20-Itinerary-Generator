@@ -78,9 +78,6 @@ export default class HomePage extends React.Component {
                                             <Link to={`${business.name}/${business.display_phone}/${business.location.display_address[0]}/${business.location.display_address[1]}/${business.rating}/${business.price}`}>
                                                 <h2>{business.name}</h2>
                                             </Link>
-
-
-
                                         </div>
                                         <div className="col-6">
                                             <img src={business.image_url} style={{ width: 200 }} />
