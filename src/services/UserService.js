@@ -30,7 +30,7 @@ export default class UserService {
         )
 
     createUser = user => {
-        fetch("http://localhost:8080/api/users/{user}", {
+        fetch("http://localhost:8080/api/users", {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
@@ -43,7 +43,7 @@ export default class UserService {
             .then(function(response) {
                 // let responseBody = response.clone().json()
                 // return responseBody;
-                return response.json()
+                return response.clone().json()
             })
     }
 

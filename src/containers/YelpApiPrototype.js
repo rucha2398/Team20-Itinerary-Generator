@@ -80,16 +80,6 @@ export default class YelpApiPrototype extends React.Component {
     render() {
         return (
             <div>
-                <div>
-                    <ul>
-                        {this.renderUsers()}
-                    </ul>
-
-                </div>
-
-                <h1>Yelp API Prototype</h1>
- 
-
                 <div className="row">
                         <div className="col-xl-12">
                         <HomePage
@@ -102,3 +92,10 @@ export default class YelpApiPrototype extends React.Component {
         )
     }
 }
+
+// <div>
+//                      <ul>
+//                          {this.renderUsers()}
+//                      </ul>
+
+//                 </div>

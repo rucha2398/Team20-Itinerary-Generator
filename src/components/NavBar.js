@@ -15,12 +15,18 @@ export default class NavBar extends React.Component {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul class="navbar-nav ml-auto">
+                if (loggedIn) {
+                    <ul class="navbar-nav ml-auto">
                     <a class="nav-item nav-link active" href="#"><FontAwesomeIcon icon={faHome}/><span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="#"><FontAwesomeIcon icon={faShare}/></a>
                     <a class="nav-item nav-link" href="#"><FontAwesomeIcon icon={faHeart}/></a>
                     <a class="nav-item nav-link" href="#"><FontAwesomeIcon icon={faUser}/></a>
                 </ul>
+                }
+
+                if (!loggedIn) {
+                    <a class="nav-item nav-link" href="#">Login/></a>
+                }
             </div>
         </nav>
         )
