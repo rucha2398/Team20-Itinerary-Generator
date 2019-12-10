@@ -3,32 +3,32 @@ import ResultDayItemCard from '../components/ResultDayItemCard'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 import ItineraryService from '../services/ItineraryService';
+import Day from '../constants/Day'
 
 export default class Itinerary extends React.Component {
     constructor(props) {
         super(props);
-        this.itinerary = this.props.currentItinerary;
+        this.state = {}
+       
         
-        // this.itineraries.then(result => console.log(result, "resultsss"));
-        // this.setState({itineraries: result})
+         
+        
     }
+
+   
+
+  
+
+
+
 
 
 
     render() {
         return (
             <div>
-            {this.props.iti}
                 <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-                    <Tab eventKey="firstDay" title="Day 1">
-                        <ResultDayItemCard></ResultDayItemCard>
-                    </Tab>
-                    <Tab eventKey="secondDay" title="Day 2">
-                        <ResultDayItemCard></ResultDayItemCard>
-                    </Tab>
-                    <Tab eventKey="thirdDay" title="Day 3">
-                        <ResultDayItemCard></ResultDayItemCard>
-                    </Tab>
+                    {this.renderDays}
                 </Tabs>
             </div>
         )

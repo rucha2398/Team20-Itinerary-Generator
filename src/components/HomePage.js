@@ -18,7 +18,7 @@ export default class HomePage extends React.Component {
 
     renderAlert = () => {
         if (!this.props.currentUser) {
-            return <div class="alert alert-danger row" role="alert">
+            return <div class="alert alert-danger row mt-lg-3" role="alert">
                 <p className='col-10'>Sorry! You are currently not logged in. Please log in to get a customized itinerary from our travel experts.</p>
                 <Link className='col-2' to={`/login`}>
                     <button className='btn btn-primary'>Log-in</button>
@@ -79,7 +79,7 @@ export default class HomePage extends React.Component {
                                 placeholder='City, State, Country' />
                             <button
                                 onClick={() => this.props.searchLocation(this.state.searchLocation)}
-                                className="btn btn-primary">Let's go!</button>
+                                className="btn btn-primary mt-lg-3">Let's go!</button>
                         </li>
                         {
                             this.props.businesses.map(business =>
