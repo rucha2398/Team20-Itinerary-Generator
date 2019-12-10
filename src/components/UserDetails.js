@@ -6,12 +6,13 @@ import {faPencilAlt, faHeart } from "@fortawesome/free-solid-svg-icons";
 export default class UserDetails extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this.props.match.path == "/admin/profile");
     }
 
     render() {
         return(
             <div>
-                <NavBar currentUser={this.props.match.params.username}></NavBar>
+                <NavBar isAdmin={this.props.match.path == "/admin/profile"} currentUser={this.props.match.params.username}></NavBar>
                 <div className = "mx-lg-5 mt-lg-5">
                     <div class="form-group row">
                         <div class="col-sm-4">

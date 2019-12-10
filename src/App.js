@@ -15,6 +15,7 @@ import SocialPage from './components/SocialPage';
 import FavoritesPage from './components/FavoritesPage';
 import UserDetails from './components/UserDetails';
 import RequestManagement from './components/RequestManagement';
+import TravelAgentDashboard from './components/TravelAgentDashboard';
 
 
 export default class App extends React.Component {
@@ -82,6 +83,8 @@ export default class App extends React.Component {
                 <Router>
 
                     <Route exact path='/' component={YelpApiPrototype} />
+                    <Route exact path='/admin' render={props => <TravelAgentDashboard {...props} />} />
+                    <Route exact path='/admin/profile' render={props => <UserDetails {...props} />} />
                     <Route exact path='/register' render={props => <Register {...props} />} />
                     <Route exact path='/username/:username/requests' render={props => <RequestManagement {...props} users={this.users} requests={this.requests} />}/>
                     <Route exact path='/username/:username/social' render={props => <SocialPage {...props} />} />
