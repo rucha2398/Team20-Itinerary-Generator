@@ -40,7 +40,11 @@ export default class Login extends React.Component {
                 e.preventDefault();
                 this.props.history.push(`/username/${this.state.username}`)
             }
-            else {
+            else if (this.state.username == 'admin' && this.state.password == 'admin') {
+                e.preventDefault();
+                this.props.history.push(`/admin`);
+
+            } else {
                 this.setState({ validUser: false })
             }
         })

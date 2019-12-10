@@ -8,7 +8,7 @@ export default class Itinerary extends React.Component {
     constructor(props) {
         super(props);
         this.itinerary = this.props.currentItinerary;
-        console.log(this.props.itineraries);
+        
         // this.itineraries.then(result => console.log(result, "resultsss"));
         // this.setState({itineraries: result})
     }
@@ -18,6 +18,7 @@ export default class Itinerary extends React.Component {
     render() {
         return (
             <div>
+            {this.props.iti}
                 <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
                     <Tab eventKey="firstDay" title="Day 1">
                         <ResultDayItemCard></ResultDayItemCard>
