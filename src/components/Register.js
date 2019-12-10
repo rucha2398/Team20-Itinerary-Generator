@@ -15,6 +15,7 @@ export default class Register extends React.Component {
         this.updatePassword = this.updatePassword.bind(this);
         this.updateVerifyPassword = this.updateVerifyPassword.bind(this);
         this.renderAlert = this.renderAlert.bind(this);
+        this.renderAdminAlert = this.renderAdminAlert.bind(this);
         let userService = UserService.getInstance();
         this.userService = userService;
 
@@ -35,32 +36,44 @@ export default class Register extends React.Component {
         }
     }
 
+    renderAdminAlert = () => {
+        if (this.state.adminCreateAttempt == true) {
+            return <div class="alert alert-danger row" role="alert">
+                <p>Admin cannot be used as a username or password.</p>
+            </div>
+        }
+    }
 
 
     handleSubmit = (e) => {
-        if (this.state.password != this.state.verifyPassword) {
-            this.setState({ passwordsMatch: false })
-        }
-
-        if (this.state.password == this.state.verifyPassword) {
-            let user = {
-                "firstName": this.state.firstName,
-                "lastName": this.state.lastName,
-                "username": this.state.username,
-                "password": this.state.password,
-                "email": this.state.email
+        if (this.state.username == 'admin' || this.state.password == 'admin') {
+            this.setState({ adminCreateAttempt: true });
+        } else {
+            if (this.state.password != this.state.verifyPassword) {
+                this.setState({ passwordsMatch: false })
             }
-            this.userService.createUser(user);
-            e.preventDefault();
-            this.props.history.push(`/success`)
+
+            if (this.state.password == this.state.verifyPassword) {
+                let user = {
+                    "firstName": this.state.firstName,
+                    "lastName": this.state.lastName,
+                    "username": this.state.username,
+                    "password": this.state.password,
+                    "email": this.state.email
+                }
+                this.userService.createUser(user);
+                e.preventDefault();
+                this.props.history.push(`/success`)
 
 
+            }
         }
     }
     render() {
         return (
             <div className="container">
                 {this.renderAlert()}
+                {this.renderAdminAlert()}
 
                 <div className="form-group row">
                     <div className="col-sm-4"></div>
