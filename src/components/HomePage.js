@@ -47,7 +47,7 @@ export default class HomePage extends React.Component {
                     </div>
                 </div>
 
-                <label><h6>What would you like to do experience?</h6></label>
+                <label><h6>What would you like to do and/or experience?</h6></label>
 
                 <div className="form-group row">
                     <div className="form-check col-3">

@@ -93,4 +93,20 @@ export default class RequestService {
                 return responseBody;
             })
     )
+
+    findRequestsByUserId = userId => (
+        fetch(`http://localhost:8080/api/users/${userId}/requests`, {
+            method: "GET",
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
+            }
+        })
+            .then(function (response) {
+                let responseBody = response.clone().json()
+                return responseBody;
+            })
+    )
 }
