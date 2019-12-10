@@ -89,7 +89,7 @@ export default class App extends React.Component {
                     <Route exact path='/username/:username/requests' render={props => <RequestManagement {...props} users={this.users} requests={this.requests} />}/>
                     <Route exact path='/username/:username/social' render={props => <SocialPage {...props} />} />
                     <Route exact path='/username/:username/favorites' render={props => <FavoritesPage {...props} />} />
-                    <Route exact path='/username/:username/profile' render={props => <UserDetails {...props} />}/>
+                    <Route exact path='/username/:username/profile' render={props => <UserDetails users={this.users} {...props} />}/>
                     <Route exact path='/success' component={RegisterSuccess}/>
                     <Route exact path='/itinerary/:itinerary' render={props => <Itinerary itineraries={this.state.itineraries} currentItinerary={props.match.params.itinerary} />} />
                     <Route exact path='/login' render={props => <Login {...props} users={this.state.users} />} />
