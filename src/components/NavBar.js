@@ -15,8 +15,8 @@ export default class NavBar extends React.Component {
     renderNavComponents = () => {
 
         if (this.props.currentUser) {
-            return <ul class="navbar-nav ml-auto">
-                <a class="nav-item nav-link active" href="#"><FontAwesomeIcon icon={faHome} /><span class="sr-only">(current)</span></a>
+            return <ul className="navbar-nav ml-auto">
+                <Link className="nav-item nav-link active" to={`/username/${this.props.currentUser}`}><FontAwesomeIcon icon={faHome} /><span class="sr-only">(current)</span></Link>
                 <Link className="nav-item nav-link" to={`/username/${this.props.currentUser}/requests`}><FontAwesomeIcon icon={faList} /></Link>
                 <Link className="nav-item nav-link" to={`/username/${this.props.currentUser}/social`}><FontAwesomeIcon icon={faShare} /></Link>
                 <Link className="nav-item nav-link" to={`/username/${this.props.currentUser}/favorites`}><FontAwesomeIcon icon={faHeart} /></Link>
@@ -33,12 +33,12 @@ export default class NavBar extends React.Component {
 
     render() {
         return (
-         <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
-            <a class="navbar-brand" href="#">Itinerary Generator</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+         <nav className="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <a className="navbar-brand" href="#">Itinerary Generator</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
-                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
                     {this.renderNavComponents()}
             </div>
         </nav>

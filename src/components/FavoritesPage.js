@@ -12,7 +12,7 @@ export default class FavoritesPage extends React.Component {
     render() {
         return (
             <div>
-                <NavBar></NavBar>
+                <NavBar currentUser={this.props.match.params.username}></NavBar>
                 <div className="row mx-lg-3 mt-lg-3">
                     <h1>Your Favorite Itineraries: </h1>
                 </div>

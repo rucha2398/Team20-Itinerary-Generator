@@ -1,5 +1,6 @@
 import React from 'react';
 import Request from '../constants/Request'
+import NavBar from './NavBar'
 
 export default class RequestManagement extends React.Component {
     constructor(props) {
@@ -8,7 +9,9 @@ export default class RequestManagement extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div >
+                <NavBar currentUser={this.props.match.params.username}></NavBar>
+
 
                 <h5>Requests in Progress</h5>  
 

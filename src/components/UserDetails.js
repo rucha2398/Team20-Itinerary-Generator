@@ -11,7 +11,7 @@ export default class UserDetails extends React.Component {
     render() {
         return(
             <div>
-                <NavBar></NavBar>
+                <NavBar currentUser={this.props.match.params.username}></NavBar>
                 <div className = "mx-lg-5 mt-lg-5">
                     <div class="form-group row">
                         <div class="col-sm-4">
