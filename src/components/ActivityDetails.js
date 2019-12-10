@@ -13,9 +13,9 @@ export default class ActivityDetails extends React.Component {
                 <h1>{this.props.match.params.name}</h1>
                 <div className="row">
                     <div className="text-left col-10">
-                        <button className="btn btn-primary">
+                        {/* <button className="btn btn-primary">
                             <i className="fa fa-arrow-left">&nbsp;Go back</i>
-                        </button>
+                        </button> */}
                     </div>
                     <div className="text-right col-2 row">
                         <button className="btn btn-success mr-1 col-5">Edit</button>

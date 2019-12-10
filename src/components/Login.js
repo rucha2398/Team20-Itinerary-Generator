@@ -70,7 +70,7 @@ export default class Login extends React.Component {
                 {this.renderAlert()}
 
 
-                <div class="form-group row">
+                <div className="form-group row">
                     <div class="col-sm-4"></div>
                     <div class="col-sm-4">
                         <h1> Login </h1>

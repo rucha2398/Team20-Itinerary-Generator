@@ -20,9 +20,9 @@ export default class HomePage extends React.Component {
         if (!this.props.currentUser) {
             return <div class="alert alert-danger row mt-lg-3" role="alert">
                 <p className='col-10'>Sorry! You are currently not logged in. Please log in to get a customized itinerary from our travel experts.</p>
-                <Link className='col-2' to={`/login`}>
+                {/* <Link className='col-2' to={`/login`}>
                     <button className='btn btn-primary'>Log-in</button>
-                </Link>
+                </Link> */}
             </div>
         }
     }
