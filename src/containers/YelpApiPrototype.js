@@ -5,6 +5,8 @@ import YelpProto from '../styles/YelpProto.css';
 import UserService from '../services/UserService';
 import EventService from '../services/EventService';
 import ItineraryService from '../services/ItineraryService';
+import NavBar from '../components/NavBar';
+
 
 
 export default class YelpApiPrototype extends React.Component {
@@ -90,11 +92,14 @@ export default class YelpApiPrototype extends React.Component {
     render() {
         return (
             <div>
+                <NavBar currentUser={this.props.currentUser}></NavBar>
+
               <div>
                 </div>
                 <div className="row">
                         <div className="col-xl-12">
                         <HomePage
+                            currentUser={this.props.currentUser}
                             searchLocation={this.searchLocation}
                             selectBusiness={this.selectBusiness}
                                     businesses={this.state.businesses} />

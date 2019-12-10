@@ -11,7 +11,7 @@ export default class ResultDayItemCard extends React.Component {
             <div>
                 <Card>
                     <Card.Title> card title 
-                        <i> <button id="delete"> <FontAwesomeIcon icon={faTrash}/> </button> </i>
+                        <i> <button > <FontAwesomeIcon icon={faTrash}/> </button> </i>
                         <i> <button id="delete"> <FontAwesomeIcon icon={faPencilAlt}/> </button> </i>
                     </Card.Title>
                     <Card.Img top width ="100%" src="http://picsum.photos/300/200" alt="Card image cap"/>

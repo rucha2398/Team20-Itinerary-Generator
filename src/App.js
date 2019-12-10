@@ -2,13 +2,16 @@ import React from 'react';
 import './App.css';
 import YelpApiPrototype from './containers/YelpApiPrototype';
 import ActivityDetails from './components/ActivityDetails';
-import NavBar from './components/NavBar';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import UserService from './services/UserService';
 import EventService from './services/EventService';
 import ItineraryService from './services/ItineraryService';
 import RequestService from './services/RequestService';
 import TravelAgentService from './services/TravelAgentService';
+import Login from './components/Login'
+import Register from './components/Register';
+import RegisterSuccess from './components/RegisterSuccess'
+
 
 export default class App extends React.Component {
     constructor(props) {
@@ -43,19 +46,12 @@ export default class App extends React.Component {
         // findAllTravelAgents
         this.travelAgents = travelAgentService.findAllTravelAgents();
         this.travelAgents.then(result => this.setState({ travelAgents: result }));
-
-       
-
-
-
-        
-
-
-
-
        
 
         this.renderAllUsers = this.renderAllUsers.bind(this);
+
+        console.log(this.props, 'props')
+
 
 
 
@@ -76,14 +72,17 @@ export default class App extends React.Component {
                 {this.state.users && console.log(this.state.users, 'users')}
                 {this.state.events && console.log(this.state.events, 'events')}
                 {this.state.itineraries && console.log(this.state.itineraries, 'itineraries')}
-                {this.state.requests && console.log(this.state.requests, 'requests')/**SQL request table empty*/}
+                {this.state.requests && console.log(this.state.requests, 'requests')/**SQL requesusernamet table empty*/}
                 {this.state.travelAgents && console.log(this.state.travelAgents, 'travelAgents')/**SQL request table empty*/}
 
 
                 <Router>
-                    <NavBar users={this.state.users}></NavBar>
 
-                    <Route exact path="/" component={YelpApiPrototype} />
+                    <Route exact path='/' component={YelpApiPrototype} />
+                    <Route exact path='/register' component={Register} />
+                    <Route exact path='/success' component={RegisterSuccess}/>
+                    <Route exact path='/login' render={props => <Login {...props} users={this.state.users} />} />
+                    <Route exact path="/username/:username" isAuthed={true} render={props => <YelpApiPrototype currentUser={props.match.params.username} />} />
                     <Route exact path="/:name/:phone/:addy1/:addy2/:rating/:price" isAuthed={true} render={props => <ActivityDetails {...props} />} />
                 </Router>
             </div>
@@ -117,6 +116,9 @@ export default class App extends React.Component {
         })
 
         userService.deleteUser(123);
+
+        userService.findUserByCredentials("mounica_34", "pass123").then(user => console.log(user));
+
 
 
 

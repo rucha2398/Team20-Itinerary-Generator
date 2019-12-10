@@ -8,6 +8,7 @@ export default class HomePage extends React.Component {
         this.state = {
             searchLocation: ''
         }
+        this.renderAlert = this.renderAlert.bind(this);
     }
 
     searchLocationChanged = event =>
@@ -15,9 +16,22 @@ export default class HomePage extends React.Component {
             searchLocation: event.target.value
         })
 
+    renderAlert = () => {
+        if (!this.props.currentUser) {
+            return <div class="alert alert-danger row" role="alert">
+                <p className='col-10'>Sorry! You are currently not logged in. Please log in to get a customized itinerary from our travel experts.</p>
+                <Link className='col-2' to={`/login`}>
+                    <button className='btn btn-primary'>Log-in</button>
+                </Link>
+            </div>
+        }
+    }
+
+
     render() {
         return (
             <div className='container'>
+                {this.renderAlert()}               
                 <h2>Itinerary Generator</h2>
 
                 <h6>Welcome to Itinerary Generator! Please enter your preferences below to request an itinerary from our travel experts.</h6>
