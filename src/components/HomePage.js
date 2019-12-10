@@ -9,7 +9,28 @@ export default class HomePage extends React.Component {
             searchLocation: ''
         }
         this.renderAlert = this.renderAlert.bind(this);
+        this.renderLink = this.renderLink.bind(this);
+        console.log(this.props, 'props')
     }
+
+    renderLink = (business) => {
+        if (this.props.currentUser) {
+            console.log("current user", this.props.currentUser)
+            return <Link to={`username/${this.props.currentUser}/${business.name}/${business.display_phone}/${business.location.display_address[0]}/${business.location.display_address[1]}/${business.rating}/${business.price}`}>
+            <h2>{business.name}</h2>
+        </Link>
+        } else {
+            return <Link to={`${business.name}/${business.display_phone}/${business.location.display_address[0]}/${business.location.display_address[1]}/${business.rating}/${business.price}`}>
+        <h2>{business.name}</h2>
+    </Link>
+        }
+        
+
+  
+
+    }
+
+
 
     searchLocationChanged = event =>
         this.setState({
@@ -88,9 +109,7 @@ export default class HomePage extends React.Component {
                                     key={business.businessId}>
                                     <div className="row">
                                         <div className="col-6">
-                                            <Link to={`${business.name}/${business.display_phone}/${business.location.display_address[0]}/${business.location.display_address[1]}/${business.rating}/${business.price}`}>
-                                                <h2>{business.name}</h2>
-                                            </Link>
+                                           {this.renderLink(business)}
                                         </div>
                                         <div className="col-6">
                                             <img src={business.image_url} style={{ width: 200 }} />

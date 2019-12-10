@@ -95,6 +95,7 @@ export default class App extends React.Component {
                     <Route exact path='/login' render={props => <Login {...props} users={this.state.users} />} />
                     <Route exact path="/username/:username" isAuthed={true} render={props => <YelpApiPrototype currentUser={props.match.params.username} />} />
                     <Route exact path="/:name/:phone/:addy1/:addy2/:rating/:price" isAuthed={true} render={props => <ActivityDetails {...props} />} />
+                    <Route exact path="/username/:username/:name/:phone/:addy1/:addy2/:rating/:price" isAuthed={true} render={props => <ActivityDetails {...props} />} />
                 </Router>
             </div>
         );
