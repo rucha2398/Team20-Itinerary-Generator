@@ -83,6 +83,7 @@ export default class Login extends React.Component {
                     <div class="form-group row">
                         <div class="col-sm-4"></div>
                         <div class="col-sm-4">
+                        <label htmlFor="username"> Username: </label>
                             <input
                                 onChange={this.updateUsername}
                                 type="username"
@@ -96,6 +97,7 @@ export default class Login extends React.Component {
                     <div class="form-group row">
                         <div class="col-sm-4"></div>
                         <div class="col-sm-4">
+                        <label htmlFor="password"> Password: </label>
                             <input type="password"
                                 onChange={this.updatePassword}
                                 class="form-control wbdv-field wbdv-password"
