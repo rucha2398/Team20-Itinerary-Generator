@@ -75,7 +75,7 @@ export default class App extends React.Component {
                 {this.state.users && console.log(this.state.users, 'users')}
                 {this.state.events && console.log(this.state.events, 'events')}
                 {this.state.itineraries && console.log(this.state.itineraries, 'itineraries')}
-                {this.state.requests && console.log(this.state.requests, 'requests')/**SQL requesusernamet table empty*/}
+                {this.state.requests && console.log(this.state.requests, 'requests')/**SQL table empty*/}
                 {this.state.travelAgents && console.log(this.state.travelAgents, 'travelAgents')/**SQL request table empty*/}
 
 

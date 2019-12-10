@@ -76,7 +76,24 @@ export default class UserService {
                 return user;
             })
         
-        )
+    )
+
+    findUserByUsername = (username) => (
+        fetch(`http://localhost:8080/api/users/username/${username}`, {
+            method: "GET",
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': true
+            }
+        }).then(response => response.clone().json())
+            .then(data => {
+                let user = data;
+                return user;
+            })
+
+    )
 
     updateUser = (userId, newUser) => (
         fetch(`http://localhost:8080/api/users/${userId}`, {
