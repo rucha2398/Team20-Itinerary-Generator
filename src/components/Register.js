@@ -85,7 +85,7 @@ export default class Register extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group row">
                         <div className="col-sm-4"></div>
-                        <div className="col-sm-4">
+                        <div className="col-sm-4 text-left">
                             <div className="block">
                                 <label htmlFor="first name"> First Name: </label>
                                 <input className="form-control form-inline wbdv-field wbdv-firstName"
@@ -102,7 +102,7 @@ export default class Register extends React.Component {
 
                     <div className="form-group row">
                         <div className="col-sm-4"></div>
-                        <div className="col-sm-4">
+                        <div className="col-sm-4 text-left">
                             <label htmlFor="last name"> Last Name: </label>
                             <input className="form-control wbdv-field wbdv-lastName"
                                 id="lastNameFld"
@@ -114,7 +114,7 @@ export default class Register extends React.Component {
 
                     <div className="form-group row">
                         <div className="col-sm-4"></div>
-                        <div className="col-sm-4">
+                        <div className="col-sm-4 text-left">
                             <label htmlFor="email"> Email: </label>
                             <input className="form-control wbdv-field wbdv-email"
                                 id="emailFld"
@@ -129,7 +129,7 @@ export default class Register extends React.Component {
 
                     <div className="form-group row">
                         <div className="col-sm-4"></div>
-                        <div className="col-sm-4">
+                        <div className="col-sm-4 text-left">
                             <label htmlFor="username"> Username: </label>
                             <input className="form-control wbdv-field wbdv-username"
                                 id="usernameFld"
@@ -141,7 +141,7 @@ export default class Register extends React.Component {
 
                     <div className="form-group row">
                         <div className="col-sm-4"></div>
-                        <div className="col-sm-4">
+                        <div className="col-sm-4 text-left">
                             <label htmlFor="password"> Password: </label>
                             <input type="password"
                                 className="form-control wbdv-field wbdv-password"
@@ -154,7 +154,7 @@ export default class Register extends React.Component {
 
                     <div className="form-group row">
                         <div className="col-sm-4"></div>
-                        <div className="col-sm-4">
+                        <div className="col-sm-4 text-left">
                             <label htmlFor="confirm_password"> Confirm Password: </label>
                             <input type="password"
                                 className="form-control wbdv-field wbdv-password"
