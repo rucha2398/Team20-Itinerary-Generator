@@ -11,6 +11,9 @@ import TravelAgentService from './services/TravelAgentService';
 import Login from './components/Login'
 import Register from './components/Register';
 import RegisterSuccess from './components/RegisterSuccess'
+import SocialPage from './components/SocialPage';
+import FavoritesPage from './components/FavoritesPage';
+import UserDetails from './components/UserDetails';
 
 
 export default class App extends React.Component {
@@ -79,7 +82,10 @@ export default class App extends React.Component {
                 <Router>
 
                     <Route exact path='/' component={YelpApiPrototype} />
-                    <Route exact path='/register' component={Register} />
+                    <Route exact path='/register' render={props => <Register {...props} />}  />
+                    <Route exact path='/username/:username/social' render={props => <SocialPage {...props} />} />
+                    <Route exact path='/username/:username/favorites' render={props => <FavoritesPage {...props} />} />
+                    <Route exact path='/username/:username/profile' render={props => <UserDetails {...props} />}/>
                     <Route exact path='/success' component={RegisterSuccess}/>
                     <Route exact path='/login' render={props => <Login {...props} users={this.state.users} />} />
                     <Route exact path="/username/:username" isAuthed={true} render={props => <YelpApiPrototype currentUser={props.match.params.username} />} />

@@ -9,6 +9,7 @@ export default class NavBar extends React.Component {
         super(props);
 
         this.renderNavComponents = this.renderNavComponents.bind(this);
+        console.log(this.props);   
     }
 
     renderNavComponents = () => {
@@ -16,9 +17,9 @@ export default class NavBar extends React.Component {
         if (this.props.currentUser) {
             return <ul class="navbar-nav ml-auto">
                 <a class="nav-item nav-link active" href="#"><FontAwesomeIcon icon={faHome} /><span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#"><FontAwesomeIcon icon={faShare} /></a>
-                <a class="nav-item nav-link" href="#"><FontAwesomeIcon icon={faHeart} /></a>
-                <a class="nav-item nav-link" href="#"><FontAwesomeIcon icon={faUser} /></a>
+                <Link className="nav-item nav-link" to={`/username/${this.props.currentUser}/social`}><FontAwesomeIcon icon={faShare} /></Link>
+                <Link className="nav-item nav-link" to={`/username/${this.props.currentUser}/favorites`}><FontAwesomeIcon icon={faHeart} /></Link>
+                <Link className="nav-item nav-link" to={`/username/${this.props.currentUser}/profile`} ><FontAwesomeIcon icon={faUser} /></Link>
             </ul>
         } else {
             return <Link className='ml-auto'to='/login'>
