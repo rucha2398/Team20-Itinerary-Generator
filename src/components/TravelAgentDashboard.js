@@ -9,7 +9,8 @@ export default class TravelAgentDashboard extends React.Component {
     render() {
         return(
             <div>
-                <NavBar></NavBar>
+                <NavBar currentUser='admin'></NavBar>
+
 
                 <div className="row mx-lg-5 mt-lg-5">
                     <table class="table">
