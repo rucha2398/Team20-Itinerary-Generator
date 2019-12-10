@@ -7,7 +7,7 @@ const Request = ({ title, isCompleted }) => {
     }
 
     if (!isCompleted) {
-        return <li className='list-group-item'> Sample Request <span className='btn float-right text-light btn-warning'>Pending</span></li >
+        return <li className='list-group-item'> {title} <span className='btn float-right text-light btn-warning'>Pending</span></li >
     }
              
 }
