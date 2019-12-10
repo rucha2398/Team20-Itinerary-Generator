@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 export default class SocialPage extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this.props.match, "propsyo")
     }
 
     render() {

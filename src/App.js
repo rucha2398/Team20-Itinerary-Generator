@@ -14,6 +14,7 @@ import RegisterSuccess from './components/RegisterSuccess'
 import SocialPage from './components/SocialPage';
 import FavoritesPage from './components/FavoritesPage';
 import UserDetails from './components/UserDetails';
+import RequestManagement from './components/RequestManagement';
 
 
 export default class App extends React.Component {
@@ -53,7 +54,6 @@ export default class App extends React.Component {
 
         this.renderAllUsers = this.renderAllUsers.bind(this);
 
-        console.log(this.props, 'props')
 
 
 
@@ -82,7 +82,8 @@ export default class App extends React.Component {
                 <Router>
 
                     <Route exact path='/' component={YelpApiPrototype} />
-                    <Route exact path='/register' render={props => <Register {...props} />}  />
+                    <Route exact path='/register' render={props => <Register {...props} />} />
+                    <Route exact path='/username/:username/requests' render={props => <RequestManagement {...props}/>}/>
                     <Route exact path='/username/:username/social' render={props => <SocialPage {...props} />} />
                     <Route exact path='/username/:username/favorites' render={props => <FavoritesPage {...props} />} />
                     <Route exact path='/username/:username/profile' render={props => <UserDetails {...props} />}/>

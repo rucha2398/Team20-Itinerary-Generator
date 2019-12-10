@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faShare, faHeart, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faShare, faHeart, faUser, faList } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 
@@ -17,6 +17,7 @@ export default class NavBar extends React.Component {
         if (this.props.currentUser) {
             return <ul class="navbar-nav ml-auto">
                 <a class="nav-item nav-link active" href="#"><FontAwesomeIcon icon={faHome} /><span class="sr-only">(current)</span></a>
+                <Link className="nav-item nav-link" to={`/username/${this.props.currentUser}/requests`}><FontAwesomeIcon icon={faList} /></Link>
                 <Link className="nav-item nav-link" to={`/username/${this.props.currentUser}/social`}><FontAwesomeIcon icon={faShare} /></Link>
                 <Link className="nav-item nav-link" to={`/username/${this.props.currentUser}/favorites`}><FontAwesomeIcon icon={faHeart} /></Link>
                 <Link className="nav-item nav-link" to={`/username/${this.props.currentUser}/profile`} ><FontAwesomeIcon icon={faUser} /></Link>
