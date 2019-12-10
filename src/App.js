@@ -83,7 +83,7 @@ export default class App extends React.Component {
 
                     <Route exact path='/' component={YelpApiPrototype} />
                     <Route exact path='/register' render={props => <Register {...props} />} />
-                    <Route exact path='/username/:username/requests' render={props => <RequestManagement {...props}/>}/>
+                    <Route exact path='/username/:username/requests' render={props => <RequestManagement {...props} requests={this.requests} />}/>
                     <Route exact path='/username/:username/social' render={props => <SocialPage {...props} />} />
                     <Route exact path='/username/:username/favorites' render={props => <FavoritesPage {...props} />} />
                     <Route exact path='/username/:username/profile' render={props => <UserDetails {...props} />}/>
