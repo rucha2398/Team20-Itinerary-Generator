@@ -37,8 +37,13 @@ export default class Login extends React.Component {
     submitForm = e => {
         this.state.users.map(user => {
             if (user.username == this.state.username && user.password == this.state.password) {
+                this.userService.findUserById(user.id).then(user => {
+                    user.loggedIn = true
+                    this.userService.updateUser(user.id, user);
+                })
                 e.preventDefault();
                 this.props.history.push(`/username/${this.state.username}`)
+                
             }
             else if (this.state.username == 'admin' && this.state.password == 'admin') {
                 e.preventDefault();
