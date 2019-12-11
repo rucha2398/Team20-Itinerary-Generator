@@ -8,27 +8,15 @@ import Day from '../constants/Day'
 export default class Itinerary extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
-       
-        
+        this.state = {}       
          
         
     }
-
-   
-
-  
-
-
-
-
-
 
     render() {
         return (
             <div>
                 <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-                    {this.renderDays}
                 </Tabs>
             </div>
         )

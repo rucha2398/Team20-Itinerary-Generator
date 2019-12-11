@@ -3,6 +3,8 @@ import NavBar from './NavBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faHeart } from "@fortawesome/free-solid-svg-icons";
 import UserService from '../services/UserService'
+import { Link } from "react-router-dom";
+
 
 export default class UserDetails extends React.Component {
     constructor(props) {
@@ -35,8 +37,21 @@ export default class UserDetails extends React.Component {
         this.renderSuccess = this.renderSuccess.bind(this);
         this.renderError = this.renderError.bind(this);
         this.renderEditButton = this.renderEditButton.bind(this);
+        this.renderLogOut = this.renderLogOut.bind(this);
         
 
+    }
+
+    renderLogOut = () => {
+        if (this.state.isAdmin) {
+            return <Link to='/'>
+                <button className='btn btn-danger'>Log out</button>
+            </Link>
+        } else {
+            return <Link to='/'>
+                <button className='btn btn-danger'>Log out</button>
+            </Link>
+        }
     }
     updateUser = e => {
         let user = {
@@ -221,6 +236,7 @@ export default class UserDetails extends React.Component {
                     {this.editFields()}
 
                 </div>
+                {this.renderLogOut()}
 
             </div>
         )

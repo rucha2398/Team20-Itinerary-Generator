@@ -9,8 +9,8 @@ export default class ResultDayItemCard extends React.Component {
     render() {
         return(
             <div>
-                <Card>
-                    <Card.Title> card title 
+                <Card className='my-5'>
+                    <Card.Title> El Pollo Loco 
                         <i> <button > <FontAwesomeIcon icon={faTrash}/> </button> </i>
                         <i> <button id="delete"> <FontAwesomeIcon icon={faPencilAlt}/> </button> </i>
                     </Card.Title>

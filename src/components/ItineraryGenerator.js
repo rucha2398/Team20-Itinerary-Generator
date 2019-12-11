@@ -2,6 +2,8 @@ import React from 'react'
 import UserRequirements from '../components/UserRequirements'
 import DayPills from '../components/DayPills'
 import NavBar from '../components/NavBar'
+import { Link } from "react-router-dom";
+
 
 export default class ItineraryGenerator extends React.Component {
     constructor(props) {
@@ -11,7 +13,7 @@ export default class ItineraryGenerator extends React.Component {
     render() {
         return (
             <div>
-                <NavBar></NavBar>
+                <NavBar currentUser='admin'></NavBar>
                 <div className="row mx-lg-3 mt-lg-3">
                     <div className="form-group col-md-4">
                         <UserRequirements></UserRequirements>
@@ -21,7 +23,11 @@ export default class ItineraryGenerator extends React.Component {
                     </div>
                 </div>
                 <div className="row mx-lg-3">
-                <i> <button className="btn btn-primary" id="submitItinerary">Submit</button> </i>
+                    <i>
+                        <Link to='/admin'>
+                            <button className="btn btn-primary" id="submitItinerary">Submit</button>
+                         </Link>
+                    </i>
                 </div>
             </div>
         )
