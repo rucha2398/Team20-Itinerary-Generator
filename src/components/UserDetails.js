@@ -193,6 +193,7 @@ export default class UserDetails extends React.Component {
                         <div class="col-sm-4 text-left">
                             <input className="form-control"
                                 required
+                                type='email'
                                 defaultValue={this.state.user && this.state.user.email}
                                 onChange={(e) => this.setState({ email: e.target.value })} />
                         </div>
