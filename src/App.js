@@ -17,6 +17,7 @@ import UserDetails from './components/UserDetails';
 import RequestManagement from './components/RequestManagement';
 import Itinerary from './components/Itinerary';
 import TravelAgentDashboard from './components/TravelAgentDashboard';
+import ItineraryGenerator from './components/ItineraryGenerator';
 
 
 export default class App extends React.Component {
@@ -86,6 +87,7 @@ export default class App extends React.Component {
                     <Route exact path='/username/:username/favorites' render={props => <FavoritesPage {...props} currentUser={props.match.params.username} />} />
                     <Route exact path='/username/:username/profile' render={props => <UserDetails users={this.users} {...props} />}/>
                     <Route exact path='/success' component={RegisterSuccess}/>
+                    <Route exact path='/admin/intinGenerator' component={ItineraryGenerator}/>
                     <Route exact path='/itinerary/:itinerary' render={props => <Itinerary itineraries={this.state.itineraries} currentItinerary={props.match.params.itinerary} currentUser={props.match.params.username}/>} />
                     <Route exact path='/login' render={props => <Login {...props} users={this.state.users} />} />
                     <Route exact path="/username/:username" isAuthed={true} render={props => <YelpApiPrototype currentUser={props.match.params.username} />} />

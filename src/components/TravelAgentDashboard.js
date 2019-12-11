@@ -23,20 +23,20 @@ export default class TravelAgentDashboard extends React.Component {
                         </thead>
                         <tbody className='list-group'>
                             <tr className="text-left clickable-row list-group-item" data-href='../components/ItineraryGenerator'>
-                                <Link to='/admin/intinGenerator/mounica'>
+                                <Link to='/admin/intinGenerator'>
                                     <td>Mounica</td>
                                     <span className='btn float-right text-light btn-warning'>Pending</span>
                                 </Link>
                             </tr>
                             <tr className="text-left clickable-row list-group-item" data-href='../components/ItineraryGenerator'>
-                                <Link to='/admin/intinGenerator/runcha'>
-                                    <td>Runcha</td>
+                                <Link to='/admin/intinGenerator'>
+                                    <td>Rucha</td>
                                     <span className='btn float-right text-light btn-warning'>Pending</span>
                                 </Link>
                             </tr>
                             <tr className="text-left clickable-row list-group-item" data-href='../components/ItineraryGenerator'>
-                                <Link to='/admin/intinGenerator/sindu'>
-                                    <td>Sindu</td>
+                                <Link to='/admin/intinGenerator'>
+                                    <td>Sindhu</td>
                                     <span className='btn float-right text-light btn-warning'>Pending</span>
                                 </Link>
                             </tr>
