@@ -19,13 +19,13 @@ export default class SocialPage extends React.Component {
                 <div className="ml-lg-4">
                     <Row>
                         <Col xs lg="3">
-                            <h4>UserXYZ for Boston:</h4>
+                            <h4>Edgar's Itinerary for Boston:</h4>
                         </Col>
                         <Col xs lg="3">
-                            <h4>UserACB for San Francisco:</h4>
+                            <h4>Rucha's Itinerary for San Francisco:</h4>
                         </Col>
                         <Col xs lg="3">
-                            <h4>MOunica for Thailand:</h4>
+                            <h4>Mounica's Itinerary for Thailand:</h4>
                         </Col>
                     </Row>
                 </div>

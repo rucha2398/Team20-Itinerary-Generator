@@ -211,7 +211,7 @@ export default class UserDetails extends React.Component {
         if (this.state.isAdmin) {
             return; // admins cannot edit their data
         } else {
-            return <button id="edit1" className='btn btn-primary' onClick={() => this.setState({ editMode: !this.state.editMode })}> Toggle Edit </button>
+            return <button id="edit1" className='btn btn-primary mt-lg-4 mb-lg-4' onClick={() => this.setState({ editMode: !this.state.editMode })}> Toggle Edit </button>
 
         }
     }
