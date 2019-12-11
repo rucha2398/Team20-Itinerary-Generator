@@ -5,7 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RequestManagement from './components/RequestManagement.js';
+import Itinerary from './components/Itinerary.js';
+import RequestManagement from './components/RequestManagement.js'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

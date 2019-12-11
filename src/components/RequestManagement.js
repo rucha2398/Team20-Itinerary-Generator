@@ -3,6 +3,7 @@ import Request from '../constants/Request'
 import NavBar from './NavBar'
 import RequestService from '../services/RequestService';
 import UserService from '../services/UserService';
+import { Link } from "react-router-dom";
 
 
 export default class RequestManagement extends React.Component {
@@ -26,17 +27,17 @@ export default class RequestManagement extends React.Component {
             <div >
                 <NavBar currentUser={this.props.match.params.username}></NavBar>
 
-                {this.state.requests && console.log("requests", this.state.requests)}
-
                 <h5>Requests in Progress</h5>  
 
                 <ul className="list-group">
                 {this.state.requests && 
                 this.state.requests.map(request =>
-                    <Request title={request.location} isCompleted={request.pending}/>)
+                    //where we need to pass the itineraryId
+                    <Link className='ml-auto' to={`/itinerary/234`}>
+                    <Request title={request.location} isCompleted={request.pending}/>
+                    </Link>)
                 }
                 </ul>
-
             </div>
         )
     }
