@@ -3,6 +3,8 @@ import NavBar from './NavBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faHeart } from "@fortawesome/free-solid-svg-icons";
 import UserService from '../services/UserService'
+import { Link } from "react-router-dom";
+
 
 export default class UserDetails extends React.Component {
     constructor(props) {
@@ -10,20 +12,48 @@ export default class UserDetails extends React.Component {
         this.state = {
             editMode: false
         }
+     
         let userService = UserService.getInstance();
         this.userService = userService;
         this.users = userService.findAllUsers();
         this.users.then(result => this.setState({ users: result }));
-        this.user = userService.findUserByUsername(this.props.match.params.username);
-        this.user.then(result => this.setState({ user: result }));
+        if (this.props.match.path != "/admin/profile") {
+            this.user = userService.findUserByUsername(this.props.match.params.username);
+            this.user.then(result => this.setState({ user: result }));
+        } else {
+            this.admin = {
+                "firstName": "admin",
+                "lastName": "admin",
+                "username": "admin",
+                "email": "admin@gmail.com",
+                "password": "admin"
+            }
+            this.state.user = this.admin;
+            this.state.isAdmin = true;
+        }
+     
         this.editFields = this.editFields.bind(this);
         this.updateUser = this.updateUser.bind(this);
         this.renderSuccess = this.renderSuccess.bind(this);
         this.renderError = this.renderError.bind(this);
+        this.renderEditButton = this.renderEditButton.bind(this);
+        this.renderLogOut = this.renderLogOut.bind(this);
+        
 
     }
-    updateUser = e => {
 
+    renderLogOut = () => {
+        if (this.state.isAdmin) {
+            return <Link to='/'>
+                <button className='btn btn-danger'>Log out</button>
+            </Link>
+        } else {
+            return <Link to='/'>
+                <button className='btn btn-danger'>Log out</button>
+            </Link>
+        }
+    }
+    updateUser = e => {
         let user = {
             "firstName": this.state.firstName,
             "lastName": this.state.lastName,
@@ -177,6 +207,14 @@ export default class UserDetails extends React.Component {
         }
     }
 
+    renderEditButton = () => {
+        if (this.state.isAdmin) {
+            return; // admins cannot edit their data
+        } else {
+            return <button id="edit1" className='btn btn-primary' onClick={() => this.setState({ editMode: !this.state.editMode })}> Toggle Edit </button>
+
+        }
+    }
 
 
 
@@ -192,12 +230,13 @@ export default class UserDetails extends React.Component {
 
                     <div class="row">
                         <h1 > User Information: </h1>
-                        <button id="edit1" className='btn btn-primary' onClick={() => this.setState({ editMode: !this.state.editMode })}> Toggle Edit </button>
+                        {this.renderEditButton()}
                     </div>
 
                     {this.editFields()}
 
                 </div>
+                {this.renderLogOut()}
 
             </div>
         )

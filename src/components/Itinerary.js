@@ -24,7 +24,6 @@ export default class Itinerary extends React.Component {
             <h1>hello</h1>
             {this.state.itinerary && this.state.itinerary.events.map(event => <h1>{event.title}</h1>)}
                 <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-                    {this.renderDays}
                 </Tabs>
             </div>
         )

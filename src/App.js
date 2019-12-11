@@ -17,6 +17,7 @@ import UserDetails from './components/UserDetails';
 import RequestManagement from './components/RequestManagement';
 import Itinerary from './components/Itinerary';
 import TravelAgentDashboard from './components/TravelAgentDashboard';
+import ItineraryGenerator from './components/ItineraryGenerator';
 
 
 export default class App extends React.Component {
@@ -86,6 +87,7 @@ export default class App extends React.Component {
                     <Route exact path='/admin' render={props => <TravelAgentDashboard {...props} />} />
                     <Route exact path='/admin/profile' render={props => <UserDetails {...props} />} />
                     <Route exact path='/register' render={props => <Register {...props} />} />
+                    <Route exact path='/admin/intinGenerator/:username' component={ItineraryGenerator}/>
                     <Route exact path='/username/:username/requests' render={props => <RequestManagement {...props} users={this.users} requests={this.requests} />}/>
                     <Route exact path='/username/:username/social' render={props => <SocialPage {...props} />} />
                     <Route exact path='/username/:username/favorites' render={props => <FavoritesPage {...props} />} />
