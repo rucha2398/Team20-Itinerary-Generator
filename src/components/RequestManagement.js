@@ -33,7 +33,7 @@ export default class RequestManagement extends React.Component {
                 {this.state.requests && 
                 this.state.requests.map(request =>
                     //where we need to pass the itineraryId
-                    <Link className='ml-auto' to={`/itinerary/234`}>
+                    <Link className='mx-3' to={`/itinerary/234`}>
                     <Request title={request.location} isCompleted={request.pending}/>
                     </Link>)
                 }

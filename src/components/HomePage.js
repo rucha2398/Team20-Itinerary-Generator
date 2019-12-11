@@ -27,6 +27,60 @@ export default class HomePage extends React.Component {
         }
     }
 
+    renderLetsGo = () => {
+        if (this.props.currentUser && this.props.currentUser != 'admin') {
+            return <ul className="list-group">
+            <li className="list-group-item">
+                <label htmlFor="Enter a location: "><h6>Where would you like to go?</h6></label>
+                <input
+                    onChange={this.searchLocationChanged}
+                    value={this.state.searchLocation}
+                    className="form-control"
+                    placeholder='City, State, Country' />
+                <Link className='ml-auto' to='/username/mounica_34/requests'>
+                <button              
+                    className="btn btn-primary mt-lg-3">Let's go!</button>
+                </Link>
+            </li>
+        </ul>
+            
+        } else {
+            return <ul className="list-group">
+            <li className="list-group-item">
+                <label htmlFor="Enter a location: "><h6>Where would you like to go?</h6></label>
+                <input
+                    onChange={this.searchLocationChanged}
+                    value={this.state.searchLocation}
+                    className="form-control"
+                    placeholder='City, State, Country' />
+                <button
+                    onClick={() => this.props.searchLocation(this.state.searchLocation)}
+                    className="btn btn-primary mt-lg-3">Let's go!</button>
+            </li>
+            {
+                this.props.businesses.map(business =>
+                    <li onClick={() => this.props.selectBusiness(business.businessId)}
+                        className="list-group-item"
+                        key={business.businessId}>
+                        <div className="row">
+                            <div className="col-6">
+                                <Link to={`${business.name}/${business.display_phone}/${business.location.display_address[0]}/${business.location.display_address[1]}/${business.rating}/${business.price}`}>
+                                    <h2>{business.name}</h2>
+                                </Link>
+                            </div>
+                            <div className="col-6">
+                                <img src={business.image_url} style={{ width: 200 }} />
+                            </div>
+                        </div>
+                    </li>
+                )
+
+            }
+        </ul>
+        }
+        
+    }
+
 
     render() {
         return (
@@ -68,41 +122,7 @@ export default class HomePage extends React.Component {
                     </div>
                 </div>
                 <div>
-
-                    <ul className="list-group">
-                        <li className="list-group-item">
-                            <label htmlFor="Enter a location: "><h6>Where would you like to go?</h6></label>
-                            <input
-                                onChange={this.searchLocationChanged}
-                                value={this.state.searchLocation}
-                                className="form-control"
-                                placeholder='City, State, Country' />
-                            <button
-                                onClick={() => this.props.searchLocation(this.state.searchLocation)}
-                                className="btn btn-primary mt-lg-3">Let's go!</button>
-                        </li>
-                        {
-                            this.props.businesses.map(business =>
-                                <li onClick={() => this.props.selectBusiness(business.businessId)}
-                                    className="list-group-item"
-                                    key={business.businessId}>
-                                    <div className="row">
-                                        <div className="col-6">
-                                            <Link to={`${business.name}/${business.display_phone}/${business.location.display_address[0]}/${business.location.display_address[1]}/${business.rating}/${business.price}`}>
-                                                <h2>{business.name}</h2>
-                                            </Link>
-                                        </div>
-                                        <div className="col-6">
-                                            <img src={business.image_url} style={{ width: 200 }} />
-                                        </div>
-                                    </div>
-
-
-
-                                </li>
-                            )
-                        }
-                    </ul>
+                    {this.renderLetsGo()}
                 </div>
             </div>
         )
