@@ -20,15 +20,12 @@ export default class SocialPage extends React.Component {
                     <Row>
                         <Col xs lg="3">
                             <h4>UserXYZ for Boston:</h4>
-                            <Itinerary></Itinerary>
                         </Col>
                         <Col xs lg="3">
                             <h4>UserACB for San Francisco:</h4>
-                            <Itinerary></Itinerary>
                         </Col>
                         <Col xs lg="3">
                             <h4>MOunica for Thailand:</h4>
-                            <Itinerary></Itinerary>
                         </Col>
                     </Row>
                 </div>

@@ -20,15 +20,12 @@ export default class FavoritesPage extends React.Component {
                     <Row>
                         <Col xs lg="3">
                             <h4>Thailand:</h4>
-                            <Itinerary></Itinerary>
                         </Col>
                         <Col xs lg="3">
                             <h4>San Francisco:</h4>
-                            <Itinerary></Itinerary>
                         </Col>
                         <Col xs lg="3">
                             <h4>Boston:</h4>
-                            <Itinerary></Itinerary>
                         </Col>
                     </Row>
                 </div>
