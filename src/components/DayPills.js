@@ -33,14 +33,7 @@ export default class UserRequirements extends React.Component {
                             </Col>
                           
                         </Row>
-                        <Row className='my-2'>
-                            <DropdownButton id="dropdown-basic-button" title="Activity Type">
-                                <Dropdown.Item>Food</Dropdown.Item>
-                                <Dropdown.Item>Shopping</Dropdown.Item>
-                                <Dropdown.Item >Nightlife</Dropdown.Item>
-                                <Dropdown.Item >Sight-see</Dropdown.Item>
-                            </DropdownButton>
-                        </Row>
+                    
                         <Row>
                             <Tab.Content>
                                 <Tab.Pane eventKey="first">
